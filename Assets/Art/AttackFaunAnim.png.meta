@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 33d234358f7c3b5429b9404b35ae50cb
+guid: c2a986496f32e334b80fd00f6ed8f8b2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7616016151531488435
+    second: AttackFaunAnim_0
+  - first:
+      213: -6656088918126387488
+    second: AttackFaunAnim_1
+  - first:
+      213: -1064939759303125711
+    second: AttackFaunAnim_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +94,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AttackFaunAnim_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b40ca3a65681b960800000000000000
+      internalID: 7616016151531488435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackFaunAnim_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee99a9f462d0a3a0800000000000000
+      internalID: -6656088918126387488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackFaunAnim_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1351c836ee29831f0800000000000000
+      internalID: -1064939759303125711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

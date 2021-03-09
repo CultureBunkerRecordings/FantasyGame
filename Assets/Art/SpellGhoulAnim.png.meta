@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 25c46368f8427c64a9a8ff7e2974408e
+guid: 4228fcf4ddae94d4094cbd4e2e7b4cdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6078541753322006675
-    second: IdleGhoulAnim_0
+      213: -2986503466866067723
+    second: SpellGhoulAnim_0
   - first:
-      213: -7093724547819053097
-    second: IdleGhoulAnim_1
+      213: -6594967295463573888
+    second: SpellGhoulAnim_1
   - first:
-      213: -1147200940576069518
-    second: IdleGhoulAnim_2
+      213: 3036413862284402525
+    second: SpellGhoulAnim_2
   - first:
-      213: -6624416445194617029
-    second: IdleGhoulAnim_3
-  - first:
-      213: -2122485317960389359
-    second: IdleGhoulAnim_4
-  - first:
-      213: 59764459713684595
-    second: IdleGhoulAnim_5
+      213: -5356220817229727324
+    second: SpellGhoulAnim_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IdleGhoulAnim_0
+      name: SpellGhoulAnim_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +113,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3986327e4815b5450800000000000000
-      internalID: 6078541753322006675
+      spriteID: 5f6b9f88beecd86d0800000000000000
+      internalID: -2986503466866067723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleGhoulAnim_1
+      name: SpellGhoulAnim_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dfd6c0ab170e8d90800000000000000
-      internalID: -7093724547819053097
+      spriteID: 0863398bf28f974a0800000000000000
+      internalID: -6594967295463573888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleGhoulAnim_2
+      name: SpellGhoulAnim_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27828fa92d25410f0800000000000000
-      internalID: -1147200940576069518
+      spriteID: d5f9884f152832a20800000000000000
+      internalID: 3036413862284402525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleGhoulAnim_3
+      name: SpellGhoulAnim_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,50 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3f3beb37585114a0800000000000000
-      internalID: -6624416445194617029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IdleGhoulAnim_4
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 0
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11d2df549da6b82e0800000000000000
-      internalID: -2122485317960389359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IdleGhoulAnim_5
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 0
-        width: 26
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3746d6f957354d000800000000000000
-      internalID: 59764459713684595
+      spriteID: 4a938729b81eaa5b0800000000000000
+      internalID: -5356220817229727324
       vertices: []
       indices: 
       edges: []

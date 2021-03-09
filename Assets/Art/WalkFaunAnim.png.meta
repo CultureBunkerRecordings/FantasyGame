@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 072c2d7a1e97cd740ace8fd55cfe1c3e
+guid: c8311281e5ad6cc4db799ddc9b623eba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6013062978085866293
-    second: FaunAnimAttack_0
+      213: 8005499114187608447
+    second: WalkFaunAnim_0
   - first:
-      213: -1643826341512831851
-    second: FaunAnimAttack_1
-  - first:
-      213: -7703419245488586523
-    second: FaunAnimAttack_2
+      213: 5601050491076187948
+    second: WalkFaunAnim_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,64 +93,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FaunAnimAttack_0
+      name: WalkFaunAnim_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 4
         y: 0
-        width: 132
-        height: 192
-      alignment: 6
+        width: 22
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4b32b741f4d8ca0800000000000000
-      internalID: -6013062978085866293
+      spriteID: f715bd6870f391f60800000000000000
+      internalID: 8005499114187608447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FaunAnimAttack_1
+      name: WalkFaunAnim_1
       rect:
         serializedVersion: 2
-        x: 198
+        x: 36
         y: 0
-        width: 144
-        height: 186
-      alignment: 6
+        width: 22
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c92b9d6a4ff29e0800000000000000
-      internalID: -1643826341512831851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FaunAnimAttack_2
-      rect:
-        serializedVersion: 2
-        x: 408
-        y: 0
-        width: 168
-        height: 186
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e0cebcb205f71590800000000000000
-      internalID: -7703419245488586523
+      spriteID: c279f99febdeabd40800000000000000
+      internalID: 5601050491076187948
       vertices: []
       indices: 
       edges: []

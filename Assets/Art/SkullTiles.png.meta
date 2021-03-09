@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 75352dda1ec31b042bb3e83baa487688
+guid: bf2d1f816453f8c44af74800e1b38707
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6475064113244861918
-    second: FaunAnimIdle_0
+      213: -6005056026081558833
+    second: SkullTiles_0
   - first:
-      213: 3767286332771164141
-    second: FaunAnimIdle_1
+      213: 2895736529731922096
+    second: SkullTiles_1
+  - first:
+      213: 3132553655794723929
+    second: SkullTiles_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -93,43 +96,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FaunAnimIdle_0
+      name: SkullTiles_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 0
         y: 0
-        width: 132
-        height: 192
-      alignment: 6
+        width: 32
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a0920de73f326a0800000000000000
-      internalID: -6475064113244861918
+      spriteID: fcef6154c51c9aca0800000000000000
+      internalID: -6005056026081558833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FaunAnimIdle_1
+      name: SkullTiles_1
       rect:
         serializedVersion: 2
-        x: 216
+        x: 32
         y: 0
-        width: 132
-        height: 186
-      alignment: 6
+        width: 32
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def5200b5f6184430800000000000000
-      internalID: 3767286332771164141
+      spriteID: 0b82bc11809bf2820800000000000000
+      internalID: 2895736529731922096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullTiles_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cee75f3f0197b20800000000000000
+      internalID: 3132553655794723929
       vertices: []
       indices: 
       edges: []

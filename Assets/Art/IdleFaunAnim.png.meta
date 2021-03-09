@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9cb7fee14e81cd8439f3faabe7bd05a7
+guid: 6db2e81f7e5d514469ce722dcdbcec9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7571748720783753668
-    second: FaunAnimWalk_0
+      213: -5981558978233314152
+    second: IdleFaunAnim_0
   - first:
-      213: -1884868657257877463
-    second: FaunAnimWalk_1
+      213: -8644538663736991438
+    second: IdleFaunAnim_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -93,43 +93,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FaunAnimWalk_0
+      name: IdleFaunAnim_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 4
         y: 0
-        width: 132
-        height: 192
-      alignment: 6
+        width: 22
+        height: 32
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c185de3851441960800000000000000
-      internalID: 7571748720783753668
+      spriteID: 894da5b0dcb3dfca0800000000000000
+      internalID: -5981558978233314152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FaunAnimWalk_1
+      name: IdleFaunAnim_1
       rect:
         serializedVersion: 2
-        x: 216
+        x: 36
         y: 0
-        width: 132
-        height: 192
-      alignment: 6
+        width: 22
+        height: 31
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92070e351f997d5e0800000000000000
-      internalID: -1884868657257877463
+      spriteID: 231a3d4d2ed680880800000000000000
+      internalID: -8644538663736991438
       vertices: []
       indices: 
       edges: []
