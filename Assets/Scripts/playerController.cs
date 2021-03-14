@@ -8,8 +8,12 @@ public class playerController : MonoBehaviour
     public float speed = 5;
     public float jumpForce;
 
-    private float x;
+    private float x = 0;
     private float y;
+
+    public KeyCode leftKey;
+    public KeyCode rightKey;
+    public KeyCode jumpKey;
 
     public bool facingRight = true;
     private bool onGround = false;
@@ -32,7 +36,7 @@ public class playerController : MonoBehaviour
         if (gameManager.gamePlaying)
         {
             groundCheck();
-            jump();
+            jumping();
         }
     }
 
@@ -78,9 +82,9 @@ public class playerController : MonoBehaviour
         }
     }
 
-    private void jump()
+    private void jumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onGround == true)            // jump
+        if (Input.GetKeyDown(jumpKey) && onGround == true)            // jump
         {
             rb.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
             touchingGround = false;
@@ -89,7 +93,19 @@ public class playerController : MonoBehaviour
 
     private void movement()
     {
-        x = Input.GetAxis("Horizontal");                            //move left and right
+        if (Input.GetKey(rightKey))
+        {
+            x = 1;
+        }
+        else if(Input.GetKey(leftKey))
+        {
+            x = -1;
+        }
+        else
+        {
+            x = 0;
+        }
+                                 //move left and right
         rb.velocity = new Vector2(x * speed, rb.velocity.y);
     }
 
