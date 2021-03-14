@@ -11,13 +11,14 @@ public class playerController : MonoBehaviour
     private float x;
     private float y;
 
-    private bool facingRight = true;
+    public bool facingRight = true;
     private bool onGround = false;
     private bool touchingGround = false;
 
-    private int pickups = 0;
+    public int pickups = 0;
 
     private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,7 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.tag == "Pickups")
         {
             Destroy(collision.gameObject);
+            pickups = gameManager.score;
             pickups++;
             gameManager.updateScore(pickups);
         }
@@ -111,6 +113,5 @@ public class playerController : MonoBehaviour
         transform.localScale = scale;
 
     }
-
    
 }

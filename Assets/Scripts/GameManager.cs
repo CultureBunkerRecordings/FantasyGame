@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject TitleScreen;
-    public TextMeshProUGUI Score;
+    public TextMeshProUGUI ScoreText;
     public bool gamePlaying = false;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void updateScore(int scoreToAdd)
     {
-        Score.SetText("Score: " + scoreToAdd);
+        score = scoreToAdd;
+        ScoreText.SetText("Potions: " + score);
     }
 }

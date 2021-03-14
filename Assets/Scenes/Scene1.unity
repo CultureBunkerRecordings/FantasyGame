@@ -370,6 +370,35 @@ Transform:
   m_Father: {fileID: 1264261563}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &328234652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5401048722877486516, guid: a4a0bd68e7553954c876f93fe814f6ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 5401048723506976234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &328234653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328234652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ae2186cbb2d9340aa9e07c9de8b73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghoulAnim: {fileID: 328234655}
+  spellPrefab: {fileID: 5291437535936661157, guid: 2bcce015059ab9c45b92d66fa1b53c96,
+    type: 3}
+  fireSpeed: 1000
+  hasMagic: 0
+--- !u!95 &328234655 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5401048722877486474, guid: a4a0bd68e7553954c876f93fe814f6ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 5401048723506976234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &346521657
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +750,7 @@ GameObject:
   - component: {fileID: 510512889}
   - component: {fileID: 510512888}
   m_Layer: 5
-  m_Name: Score
+  m_Name: NumPotions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -746,7 +775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: Potions
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -815,7 +844,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 510512888}
-    characterCount: 5
+    characterCount: 7
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -939,7 +968,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.2364287
+  orthographic size: 2.9622698
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -963,7 +992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -1.46, z: -10}
+  m_LocalPosition: {x: -3.95, y: -1.74, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1111,6 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 700
+  facingRight: 1
+  pickups: 0
 --- !u!4 &564555104
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,7 +1191,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.004093021, y: -0.032752514}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1171,7 +1202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7953474, y: 0.934495}
   m_EdgeRadius: 0
 --- !u!1 &652985275
 GameObject:
@@ -1573,8 +1604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleScreen: {fileID: 1978763121}
-  Score: {fileID: 510512888}
+  ScoreText: {fileID: 510512888}
   gamePlaying: 0
+  score: 0
 --- !u!4 &765252098
 Transform:
   m_ObjectHideFlags: 0
