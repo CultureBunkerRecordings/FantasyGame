@@ -16,7 +16,7 @@ public class GhoulController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pController = GameObject.Find("playerController").GetComponent<playerController>();
+        pController = GameObject.Find("PlayerController").GetComponent<playerController>();
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
