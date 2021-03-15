@@ -18,8 +18,12 @@ public class GameManager : MonoBehaviour
 
     public void playGame()
     {
-        updateScore(0);
-        TitleScreen.SetActive(false);
+        if(TitleScreen != null)
+        {
+            updateScore(0);
+            TitleScreen.SetActive(false);
+        }
+        
         gamePlaying = true;
     }
 

@@ -5,6 +5,13 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     GameManager gameManager;
+
+    public GameObject DialogueManager;
+    DialogueManager dManager = default;
+    DialogueTrigger dTrigger;
+
+    bool isInDialogue = false;
+
     public float speed = 5;
     public float jumpForce;
 
@@ -28,12 +35,23 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.gamePlaying)
+        if(DialogueManager != null) //check incase there is no DialogueManager in scene
+        {
+            dManager = DialogueManager.GetComponent<DialogueManager>();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                InDialogue();
+            }
+            isInDialogue = dManager.inDialogue;
+        }
+
+        if (gameManager.gamePlaying && !isInDialogue)
         {
             groundCheck();
             jumping();
@@ -86,7 +104,7 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKeyDown(jumpKey) && onGround == true)            // jump
         {
-            rb.AddForce(Vector2.up * jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             touchingGround = false;
         }
     }
@@ -128,6 +146,12 @@ public class playerController : MonoBehaviour
         }
         transform.localScale = scale;
 
+    }
+
+    private void InDialogue()
+    {
+        dTrigger = gameObject.GetComponent<DialogueTrigger>();
+        dTrigger.TriggerDialogue();
     }
    
 }
