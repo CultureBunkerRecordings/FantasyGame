@@ -8,6 +8,6 @@ public class SceneSwitcher : MonoBehaviour
    public int sceneNum;
    public void SwitchScene()
     {
-        SceneManager.LoadScene(sceneNum);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 }
