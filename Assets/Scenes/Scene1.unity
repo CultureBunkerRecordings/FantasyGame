@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 61254795}
   - component: {fileID: 61254794}
   - component: {fileID: 61254793}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -230,6 +230,42 @@ Transform:
   m_Father: {fileID: 1264261563}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &141099930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3977298757111056949, guid: 6ba92030938d348409b97be8cbc6ff32,
+    type: 3}
+  m_PrefabInstance: {fileID: 2046738634399678099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &148112012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148112013}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &148112013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148112012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.37, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1043183316}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180936304
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +308,7 @@ GameObject:
   - component: {fileID: 195937351}
   - component: {fileID: 195937350}
   - component: {fileID: 195937349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (9)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -611,7 +647,7 @@ GameObject:
   - component: {fileID: 493554957}
   - component: {fileID: 493554956}
   - component: {fileID: 493554955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (8)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -995,7 +1031,7 @@ GameObject:
   - component: {fileID: 550960607}
   - component: {fileID: 550960606}
   - component: {fileID: 550960605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1110,7 +1146,7 @@ GameObject:
   - component: {fileID: 652985278}
   - component: {fileID: 652985277}
   - component: {fileID: 652985276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1359,6 +1395,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693774574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693774575}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693774575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693774574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1043183316}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &704559735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1593,7 @@ GameObject:
   - component: {fileID: 827239201}
   - component: {fileID: 827239200}
   - component: {fileID: 827239199}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1635,7 +1701,7 @@ GameObject:
   - component: {fileID: 938632837}
   - component: {fileID: 938632836}
   - component: {fileID: 938632835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (10)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1744,7 +1810,7 @@ GameObject:
   - component: {fileID: 1037764932}
   - component: {fileID: 1037764931}
   - component: {fileID: 1037764930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1842,6 +1908,42 @@ Transform:
   m_Father: {fileID: 1264261563}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1039895080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039895081}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039895081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039895080}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.49, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 141099930}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1043183316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 836216202041676886, guid: 7937745313343f048828a95fd9ca82c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 836216202620277815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123414729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,7 +1955,7 @@ GameObject:
   - component: {fileID: 1123414732}
   - component: {fileID: 1123414731}
   - component: {fileID: 1123414730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (6)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1962,7 +2064,7 @@ GameObject:
   - component: {fileID: 1190620402}
   - component: {fileID: 1190620401}
   - component: {fileID: 1190620400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2071,7 +2173,7 @@ GameObject:
   - component: {fileID: 1228057060}
   - component: {fileID: 1228057059}
   - component: {fileID: 1228057058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_0
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2294,7 +2396,7 @@ GameObject:
   - component: {fileID: 1340284916}
   - component: {fileID: 1340284918}
   - component: {fileID: 1340284917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stoneTile1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2480,7 +2582,7 @@ GameObject:
   - component: {fileID: 1366051095}
   - component: {fileID: 1366051094}
   - component: {fileID: 1366051093}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2589,7 +2691,7 @@ GameObject:
   - component: {fileID: 1472660523}
   - component: {fileID: 1472660525}
   - component: {fileID: 1472660524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_0 (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2687,6 +2789,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1516702398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516702399}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516702399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516702398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13, y: -0.51, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 141099930}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526053242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2911,7 @@ GameObject:
   - component: {fileID: 1638936077}
   - component: {fileID: 1638936079}
   - component: {fileID: 1638936078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_0 (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2888,7 +3020,7 @@ GameObject:
   - component: {fileID: 1811062167}
   - component: {fileID: 1811062169}
   - component: {fileID: 1811062168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_0 (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3148,7 +3280,7 @@ GameObject:
   - component: {fileID: 1939357465}
   - component: {fileID: 1939357464}
   - component: {fileID: 1939357463}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (7)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3257,7 +3389,7 @@ GameObject:
   - component: {fileID: 1961024041}
   - component: {fileID: 1961024040}
   - component: {fileID: 1961024039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullTiles_1 (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3403,7 +3535,7 @@ GameObject:
   - component: {fileID: 2013151083}
   - component: {fileID: 2013151085}
   - component: {fileID: 2013151084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: stoneTile2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3562,6 +3694,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
+        type: 3}
+      propertyPath: WallCheck
+      value: 
+      objectReference: {fileID: 148112013}
+    - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
+        type: 3}
+      propertyPath: GroundCheck
+      value: 
+      objectReference: {fileID: 693774575}
+    - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
+        type: 3}
+      propertyPath: WhatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 836216202094049641, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
       propertyPath: m_Name
@@ -3576,6 +3728,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2046738634105538321, guid: 6ba92030938d348409b97be8cbc6ff32,
+        type: 3}
+      propertyPath: WallCheck
+      value: 
+      objectReference: {fileID: 1039895081}
+    - target: {fileID: 2046738634105538321, guid: 6ba92030938d348409b97be8cbc6ff32,
+        type: 3}
+      propertyPath: GroundCheck
+      value: 
+      objectReference: {fileID: 1516702399}
+    - target: {fileID: 2046738634105538321, guid: 6ba92030938d348409b97be8cbc6ff32,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046738634105538321, guid: 6ba92030938d348409b97be8cbc6ff32,
+        type: 3}
+      propertyPath: WhatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 2046738634105538540, guid: 6ba92030938d348409b97be8cbc6ff32,
         type: 3}
       propertyPath: m_LocalPosition.x

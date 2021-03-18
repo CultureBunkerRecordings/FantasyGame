@@ -23,8 +23,15 @@ public class playerController : MonoBehaviour
     public KeyCode jumpKey;
 
     public bool facingRight = true;
+    
     private bool onGround = false;
-    private bool touchingGround = false;
+    private bool onWall = false;
+    public Transform GroundCheck;
+    public Transform WallCheck;
+    public float checkRadius;
+    public LayerMask WhatIsGround;
+
+
 
     public int pickups = 0;
 
@@ -54,6 +61,7 @@ public class playerController : MonoBehaviour
         if (gameManager.gamePlaying && !isInDialogue)
         {
             groundCheck();
+            wallCheck();
             jumping();
         }
     }
@@ -73,11 +81,6 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player")
-        {
-            touchingGround = true;
-        }
-
         if (collision.gameObject.tag == "Pickups")
         {
             Destroy(collision.gameObject);
@@ -88,24 +91,21 @@ public class playerController : MonoBehaviour
 
     }
 
+    void wallCheck()
+    {
+        onWall = Physics2D.OverlapCircle(WallCheck.position, checkRadius, WhatIsGround);
+    }
+
     void groundCheck()
     {
-        if (rb.velocity.y != 0.0f && !touchingGround)       //ground check stops player from jumping if not touching the ground
-        {
-            onGround = false;
-        }
-        else
-        {
-            onGround = true;
-        }
+        onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, WhatIsGround);
     }
 
     private void jumping()
     {
-        if (Input.GetKeyDown(jumpKey) && onGround == true)            // jump
+        if (Input.GetKeyDown(jumpKey) && (onGround == true || onWall == true))            // jump
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            touchingGround = false;
         }
     }
 
