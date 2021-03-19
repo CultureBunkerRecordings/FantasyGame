@@ -53,10 +53,36 @@ public class GhoulController : MonoBehaviour
         ghoulAnim.SetBool("attack", hasMagic);
     }
 
+    void wallJump()
+    {
+        if (pController.isWallJumping)
+        {
+            ghoulAnim.SetBool("wallJumping", true);
+        }
+        else
+        {
+            ghoulAnim.SetBool("wallJumping", false);
+        }
+    }
+
+    void jumpAnim()
+    {
+        if (pController.isJumping)
+        {
+            ghoulAnim.SetBool("isJumping", true);
+        }
+        else
+        {
+            ghoulAnim.SetBool("isJumping", false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         findSpellDirection();
         fireSpell();
+        wallJump();
+        jumpAnim();
     }
 }

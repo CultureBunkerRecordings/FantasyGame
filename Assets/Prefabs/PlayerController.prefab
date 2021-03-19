@@ -1,5 +1,82 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148112012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148112013}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &148112013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148112012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.37, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 836216202041676886}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693774574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693774575}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693774575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693774574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 836216202041676886}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836216202392756906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836216202041676905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ae2186cbb2d9340aa9e07c9de8b73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghoulAnim: {fileID: 836216202041676887}
+  spellPrefab: {fileID: 5291437535936661157, guid: 2bcce015059ab9c45b92d66fa1b53c96,
+    type: 3}
+  fireSpeed: 1000
+  hasMagic: 0
 --- !u!1 &836216202094049641
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +103,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836216202094049641}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.64, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -93,30 +170,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6ced595d3f2334dbfadc7a4da32156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueManager: {fileID: 0}
   speed: 5
   jumpForce: 5
   leftKey: 276
   rightKey: 275
   jumpKey: 273
   facingRight: 1
+  GroundCheck: {fileID: 693774575}
+  WallCheck: {fileID: 148112013}
+  checkRadius: 0.2
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
   pickups: 0
---- !u!114 &836216202392756906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836216202041676905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92ae2186cbb2d9340aa9e07c9de8b73f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghoulAnim: {fileID: 836216202041676887}
-  spellPrefab: {fileID: 5291437535936661157, guid: 2bcce015059ab9c45b92d66fa1b53c96,
-    type: 3}
-  fireSpeed: 1000
-  hasMagic: 0
 --- !u!1001 &4714907096362926557
 PrefabInstance:
   m_ObjectHideFlags: 0

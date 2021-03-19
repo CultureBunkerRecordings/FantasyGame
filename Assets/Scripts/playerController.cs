@@ -21,17 +21,19 @@ public class playerController : MonoBehaviour
     public KeyCode leftKey;
     public KeyCode rightKey;
     public KeyCode jumpKey;
+    public bool isJumping = false;
 
     public bool facingRight = true;
     
     private bool onGround = false;
-    private bool onWall = false;
+    public bool onWall = false;
+    public bool onBehindWall = false;
+    public bool isWallJumping = false;
     public Transform GroundCheck;
     public Transform WallCheck;
+    public Transform WallCheck2;
     public float checkRadius;
     public LayerMask WhatIsGround;
-
-
 
     public int pickups = 0;
 
@@ -41,8 +43,7 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
     }
 
     // Update is called once per frame
@@ -62,7 +63,10 @@ public class playerController : MonoBehaviour
         {
             groundCheck();
             wallCheck();
-            jumping();
+            wallJumpCheck();
+
+            jumpingCheck();
+            jump();
         }
     }
 
@@ -94,6 +98,19 @@ public class playerController : MonoBehaviour
     void wallCheck()
     {
         onWall = Physics2D.OverlapCircle(WallCheck.position, checkRadius, WhatIsGround);
+        onBehindWall = Physics2D.OverlapCircle(WallCheck2.position, checkRadius, WhatIsGround);
+    }
+
+    void wallJumpCheck()
+    {
+        if (onBehindWall && !onGround && Input.GetKeyDown(jumpKey))
+        {
+            isWallJumping = true;
+        }
+        else
+        {
+            isWallJumping = false;
+        }
     }
 
     void groundCheck()
@@ -101,11 +118,23 @@ public class playerController : MonoBehaviour
         onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, WhatIsGround);
     }
 
-    private void jumping()
+    private void jump()
     {
-        if (Input.GetKeyDown(jumpKey) && (onGround == true || onWall == true))            // jump
+        if (Input.GetKeyDown(jumpKey) && (onGround == true || onBehindWall == true))            // jump
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }  
+    }
+
+    public void jumpingCheck()
+    {
+        if(!onGround && !isWallJumping)
+        {
+            isJumping = true;
+        }
+        else
+        {
+            isJumping = false;
         }
     }
 
