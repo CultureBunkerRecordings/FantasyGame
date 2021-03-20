@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour
     public bool onWall = false;
     public bool onBehindWall = false;
     public bool isWallJumping = false;
+   
     public Transform GroundCheck;
     public Transform WallCheck;
     public Transform WallCheck2;
@@ -36,14 +37,17 @@ public class playerController : MonoBehaviour
     public LayerMask WhatIsGround;
 
     public int pickups = 0;
-
+    public int health = 4;
     private Rigidbody2D rb;
+
+    public GameObject[] character;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.health = health;
     }
 
     // Update is called once per frame
@@ -93,6 +97,12 @@ public class playerController : MonoBehaviour
             gameManager.updateScore(pickups);
         }
 
+        if(collision.gameObject.tag == "Enemy")
+        {
+            health--;
+            gameManager.updateHealth(health);
+        }
+
     }
 
     void wallCheck()
@@ -136,6 +146,39 @@ public class playerController : MonoBehaviour
         {
             isJumping = false;
         }
+    }
+
+    public void FaunSelect()
+    {
+        foreach(var c in character)
+        {
+            c.SetActive(false);
+        }
+
+        character[0].SetActive(true);
+        gameManager.updateCharacter(0);
+    }
+
+    public void GhoulSelect()
+    {
+        foreach (var c in character)
+        {
+            c.SetActive(false);
+        }
+
+        character[1].SetActive(true);
+        gameManager.updateCharacter(1);
+    }
+
+    public void SkeletonSelect()
+    {
+        foreach (var c in character)
+        {
+            c.SetActive(false);
+        }
+
+        character[2].SetActive(true);
+        gameManager.updateCharacter(2);
     }
 
     private void movement()

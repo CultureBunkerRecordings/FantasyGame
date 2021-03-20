@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 305df4cee264b754aa8771bac26bb406
+guid: df03a042b0114fd40a8084250adda10f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5627790015246450082
-    second: WolfRun_0
+      213: 3273457076245802264
+    second: GhoulWallJump_0
   - first:
-      213: 840546471325413887
-    second: WolfRun_1
+      213: 6564345154611979315
+    second: GhoulWallJump_1
+  - first:
+      213: -806352548917559875
+    second: GhoulWallJump_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,13 +96,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WolfRun_0
+      name: GhoulWallJump_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 32
-        height: 28
+        y: 4
+        width: 23
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +110,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e52ceb66cc216e1b0800000000000000
-      internalID: -5627790015246450082
+      spriteID: 81dae190ed7ad6d20800000000000000
+      internalID: 3273457076245802264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WolfRun_1
+      name: GhoulWallJump_1
       rect:
         serializedVersion: 2
         x: 32
         y: 2
-        width: 32
-        height: 28
+        width: 27
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff13f80ff883aab00800000000000000
-      internalID: 840546471325413887
+      spriteID: 33424b3832d391b50800000000000000
+      internalID: 6564345154611979315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhoulWallJump_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdb90601a24fc4f0800000000000000
+      internalID: -806352548917559875
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class GhoulController : MonoBehaviour
+public class GhoulController2 : MonoBehaviour
 {
 
     public Animator ghoulAnim;
-    playerController pController;
+    playerController p2Controller;
 
     GameManager gManager;
 
@@ -17,13 +17,13 @@ public class GhoulController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pController = GameObject.Find("PlayerController").GetComponent<playerController>();
+        p2Controller = GameObject.Find("Player2Controller").GetComponent<playerController>();
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void findSpellDirection()
     {
-        if (pController.facingRight)
+        if (p2Controller.facingRight)
         {
             spellDirection = Vector2.right;
         }
@@ -35,16 +35,16 @@ public class GhoulController : MonoBehaviour
 
     private void fireSpell()
     {
-        if (Input.GetKey(KeyCode.Z) && pController.pickups  > 0)
+        if (Input.GetKey(KeyCode.Z) && p2Controller.pickups  > 0)
         {
             hasMagic = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) && pController.pickups > 0)
+        else if (Input.GetKeyUp(KeyCode.Z) && p2Controller.pickups > 0)
         {
             var newSpellPrefab = Instantiate(spellPrefab, transform.position, transform.rotation);
             newSpellPrefab.GetComponent<Rigidbody2D>().AddForce(spellDirection * fireSpeed);
-            pController.pickups--;
-            gManager.updateScore(pController.pickups);
+            p2Controller.pickups--;
+            gManager.updateScore(p2Controller.pickups);
             hasMagic = false;
         }
         else
@@ -56,7 +56,7 @@ public class GhoulController : MonoBehaviour
 
     void wallJump()
     {
-        if (pController.isWallJumping)
+        if (p2Controller.isWallJumping)
         {
             ghoulAnim.SetBool("wallJumping", true);
         }
@@ -68,7 +68,7 @@ public class GhoulController : MonoBehaviour
 
     void jumpAnim()
     {
-        if (pController.isJumping)
+        if (p2Controller.isJumping)
         {
             ghoulAnim.SetBool("isJumping", true);
         }

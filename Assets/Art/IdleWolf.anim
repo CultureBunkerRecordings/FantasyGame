@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallJumpGhoul
+  m_Name: IdleWolf
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3273457076245802264, guid: 8c9436dd1b7156b4a9acb72e35bac04f,
+      value: {fileID: -6445228551172719711, guid: 69f57baed415e6349b261d8103417bdd,
         type: 3}
-    - time: 0.21666667
-      value: {fileID: 6564345154611979315, guid: 8c9436dd1b7156b4a9acb72e35bac04f,
+    - time: 0.25
+      value: {fileID: -7963779085269743126, guid: 69f57baed415e6349b261d8103417bdd,
+        type: 3}
+    - time: 0.51666665
+      value: {fileID: -6445228551172719711, guid: 69f57baed415e6349b261d8103417bdd,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,19 +47,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 3273457076245802264, guid: 8c9436dd1b7156b4a9acb72e35bac04f, type: 3}
-    - {fileID: 6564345154611979315, guid: 8c9436dd1b7156b4a9acb72e35bac04f, type: 3}
+    - {fileID: -6445228551172719711, guid: 69f57baed415e6349b261d8103417bdd, type: 3}
+    - {fileID: -7963779085269743126, guid: 69f57baed415e6349b261d8103417bdd, type: 3}
+    - {fileID: -6445228551172719711, guid: 69f57baed415e6349b261d8103417bdd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.23333333
+    m_StopTime: 0.5333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public bool inDialogue = false;
 
     GameManager gManager;
+    SceneSwitcher sSWitcher;
 
     public Text dialogueText;
 
@@ -17,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     {
         Sentences = new Queue<string>();
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sSWitcher = GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>();
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -38,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         if(Sentences.Count == 0)
         {
             EndDialogue();
+            
             return;
         }
 
@@ -49,7 +53,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Conversation");
         inDialogue = false;
-        gManager.playGame();
+        sSWitcher.SwitchScene();
     }
 
     public void isInDialogue()

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 305df4cee264b754aa8771bac26bb406
+guid: abf7488e8711a12489443cbda9865ad6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5627790015246450082
-    second: WolfRun_0
+      213: 5659277570450604080
+    second: GhoulWallJumpOpposite_0
   - first:
-      213: 840546471325413887
-    second: WolfRun_1
+      213: -3810762904286033134
+    second: GhoulWallJumpOpposite_1
+  - first:
+      213: 4397447898500780571
+    second: GhoulWallJumpOpposite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,13 +96,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WolfRun_0
+      name: GhoulWallJumpOpposite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 32
-        height: 28
+        x: 9
+        y: 4
+        width: 23
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +110,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e52ceb66cc216e1b0800000000000000
-      internalID: -5627790015246450082
+      spriteID: 0304b0857fac98e40800000000000000
+      internalID: 5659277570450604080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WolfRun_1
+      name: GhoulWallJumpOpposite_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 2
-        width: 32
-        height: 28
+        width: 27
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff13f80ff883aab00800000000000000
-      internalID: 840546471325413887
+      spriteID: 21b8bce24537d1bc0800000000000000
+      internalID: -3810762904286033134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhoulWallJumpOpposite_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b125d64a09fd60d30800000000000000
+      internalID: 4397447898500780571
       vertices: []
       indices: 
       edges: []

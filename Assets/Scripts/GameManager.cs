@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public bool gamePlaying = false;
     public int score;
+    public int health;
+
+    public GameObject[] healthSprites;
+    public GameObject[] heads;
 
     public static GameManager SingletonInstance
     {
@@ -28,7 +32,6 @@ public class GameManager : MonoBehaviour
         {
             singltonInstance = this;
         }
-        DontDestroyOnLoad(gameObject.transform);
     }
 
     // Start is called before the first frame update
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         if(TitleScreen != null)
         {
             updateScore(0);
+            updateHealth(health);
             TitleScreen.SetActive(false);
         }
         
@@ -57,5 +61,27 @@ public class GameManager : MonoBehaviour
     {
         score = scoreToAdd;
         ScoreText.SetText("Potions: " + score);
+    }
+
+    public void updateHealth(int healthToAdd)
+    {
+        foreach (var health in healthSprites)
+        {
+            health.SetActive(false);
+        }
+        if(healthToAdd >= 0)
+        {
+            healthSprites[healthToAdd].SetActive(true);
+        }
+    }
+
+    public void updateCharacter(int headNum)
+    {
+        foreach(var head in heads)
+        {
+            head.SetActive(false);
+        }
+
+        heads[headNum].SetActive(true);
     }
 }

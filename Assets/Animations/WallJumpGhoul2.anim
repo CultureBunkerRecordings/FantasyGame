@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallJumpGhoul
+  m_Name: WallJumpGhoul2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3273457076245802264, guid: 8c9436dd1b7156b4a9acb72e35bac04f,
+      value: {fileID: 5659277570450604080, guid: abf7488e8711a12489443cbda9865ad6,
+        type: 3}
+    - time: 0.016666668
+      value: {fileID: -3810762904286033134, guid: abf7488e8711a12489443cbda9865ad6,
+        type: 3}
+    - time: 0.1
+      value: {fileID: 5659277570450604080, guid: abf7488e8711a12489443cbda9865ad6,
         type: 3}
     - time: 0.21666667
-      value: {fileID: 6564345154611979315, guid: 8c9436dd1b7156b4a9acb72e35bac04f,
+      value: {fileID: -3810762904286033134, guid: abf7488e8711a12489443cbda9865ad6,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,8 +50,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 3273457076245802264, guid: 8c9436dd1b7156b4a9acb72e35bac04f, type: 3}
-    - {fileID: 6564345154611979315, guid: 8c9436dd1b7156b4a9acb72e35bac04f, type: 3}
+    - {fileID: 5659277570450604080, guid: abf7488e8711a12489443cbda9865ad6, type: 3}
+    - {fileID: -3810762904286033134, guid: abf7488e8711a12489443cbda9865ad6, type: 3}
+    - {fileID: 5659277570450604080, guid: abf7488e8711a12489443cbda9865ad6, type: 3}
+    - {fileID: -3810762904286033134, guid: abf7488e8711a12489443cbda9865ad6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
