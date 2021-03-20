@@ -12,10 +12,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public bool gamePlaying = false;
     public int score;
-    public int health;
+    public int p1Health;
+    public int p2Health;
 
-    public GameObject[] healthSprites;
-    public GameObject[] heads;
+    public GameObject[] p1HealthSprites;
+    public GameObject[] p1Heads;
+
+    public GameObject[] p2HealthSprites;
+    public GameObject[] p2Heads;
 
     public static GameManager SingletonInstance
     {
@@ -45,7 +49,8 @@ public class GameManager : MonoBehaviour
         if(TitleScreen != null)
         {
             updateScore(0);
-            updateHealth(health);
+            updateP1Health(p1Health);
+            updateP2Health(p2Health);
             TitleScreen.SetActive(false);
         }
         
@@ -63,25 +68,47 @@ public class GameManager : MonoBehaviour
         ScoreText.SetText("Potions: " + score);
     }
 
-    public void updateHealth(int healthToAdd)
+    public void updateP1Health(int healthToAdd)
     {
-        foreach (var health in healthSprites)
+        foreach (var health in p1HealthSprites)
         {
             health.SetActive(false);
         }
         if(healthToAdd >= 0)
         {
-            healthSprites[healthToAdd].SetActive(true);
+            p1HealthSprites[healthToAdd].SetActive(true);
         }
     }
 
-    public void updateCharacter(int headNum)
+    public void updateP2Health(int healthToAdd)
     {
-        foreach(var head in heads)
+        foreach (var health in p2HealthSprites)
+        {
+            health.SetActive(false);
+        }
+        if (healthToAdd >= 0)
+        {
+            p2HealthSprites[healthToAdd].SetActive(true);
+        }
+    }
+
+    public void updatePlayer1Character(int headNum)
+    {
+        foreach(var head in p1Heads)
         {
             head.SetActive(false);
         }
 
-        heads[headNum].SetActive(true);
+        p1Heads[headNum].SetActive(true);
+    }
+
+    public void updatePlayer2Character(int headNum)
+    {
+        foreach (var head in p2Heads)
+        {
+            head.SetActive(false);
+        }
+
+        p2Heads[headNum].SetActive(true);
     }
 }

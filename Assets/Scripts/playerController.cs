@@ -40,14 +40,15 @@ public class playerController : MonoBehaviour
     public int health = 4;
     private Rigidbody2D rb;
 
-    public GameObject[] character;
+    public GameObject[] p1Character;
+    public GameObject[] p2Character;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.health = health;
+        gameManager.p1Health = health;
     }
 
     // Update is called once per frame
@@ -100,7 +101,7 @@ public class playerController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             health--;
-            gameManager.updateHealth(health);
+            gameManager.updateP1Health(health);
         }
 
     }
@@ -148,37 +149,70 @@ public class playerController : MonoBehaviour
         }
     }
 
-    public void FaunSelect()
+    public void P1FaunSelect()
     {
-        foreach(var c in character)
+        foreach(var c in p1Character)
         {
             c.SetActive(false);
         }
 
-        character[0].SetActive(true);
-        gameManager.updateCharacter(0);
+        p1Character[0].SetActive(true);
+        gameManager.updatePlayer1Character(0);
     }
 
-    public void GhoulSelect()
+    public void P1GhoulSelect()
     {
-        foreach (var c in character)
+        foreach (var c in p1Character)
         {
             c.SetActive(false);
         }
 
-        character[1].SetActive(true);
-        gameManager.updateCharacter(1);
+        p1Character[1].SetActive(true);
+        gameManager.updatePlayer1Character(1);
     }
 
-    public void SkeletonSelect()
+    public void P1SkeletonSelect()
     {
-        foreach (var c in character)
+        foreach (var c in p1Character)
         {
             c.SetActive(false);
         }
 
-        character[2].SetActive(true);
-        gameManager.updateCharacter(2);
+        p1Character[2].SetActive(true);
+        gameManager.updatePlayer1Character(2);
+    }
+
+    public void P2FaunSelect()
+    {
+        foreach (var c in p2Character)
+        {
+            c.SetActive(false);
+        }
+
+        p2Character[0].SetActive(true);
+        gameManager.updatePlayer2Character(0);
+    }
+
+    public void P2GhoulSelect()
+    {
+        foreach (var c in p2Character)
+        {
+            c.SetActive(false);
+        }
+
+        p2Character[1].SetActive(true);
+        gameManager.updatePlayer2Character(1);
+    }
+
+    public void P2SkeletonSelect()
+    {
+        foreach (var c in p2Character)
+        {
+            c.SetActive(false);
+        }
+
+        p2Character[2].SetActive(true);
+        gameManager.updatePlayer2Character(2);
     }
 
     private void movement()
