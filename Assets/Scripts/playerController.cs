@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     DialogueTrigger dTrigger;
 
     bool isInDialogue = false;
+    public bool isPickingup = false;
 
     public float speed = 5;
     public float jumpForce;
@@ -92,10 +93,15 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pickups")
         {
+            isPickingup = true;
             Destroy(collision.gameObject);
             pickups = gameManager.score;
             pickups++;
             gameManager.updateScore(pickups);
+        }
+        else
+        {
+            isPickingup = false;
         }
 
         if(collision.gameObject.tag == "Enemy")

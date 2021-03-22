@@ -6,27 +6,21 @@ public class FaunController : MonoBehaviour
 {
 
     private Animator FaunAnim;
+    playerController pController;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        pController = GameObject.Find("PlayerController").GetComponent<playerController>();
         FaunAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        FaunAnim.SetBool("hasPotion", pController.isPickingup);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Pickups")
-        {
-            FaunAnim.SetBool("hasPotion", true);
-        }
-        else
-        {
-            FaunAnim.SetBool("hasPotion", false);
-        }
-    }
+    
 }
