@@ -48,3 +48,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: backgound
+    uniqueID: 3124869393
+    locked: 0
+  - name: tiles
+    uniqueID: 1978071415
+    locked: 0
+  - name: Pickups
+    uniqueID: 3220988765
+    locked: 0
+  - name: Spells
+    uniqueID: 3020366171
+    locked: 0
+  - name: players
+    uniqueID: 3857140529
+    locked: 0
+  - name: UI
+    uniqueID: 3822307663
+    locked: 0
