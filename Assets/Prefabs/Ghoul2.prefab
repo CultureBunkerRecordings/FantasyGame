@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 7817455198690129556}
   - component: {fileID: 7817455198690129557}
   - component: {fileID: 7817455198690129578}
-  - component: {fileID: 161314625}
   m_Layer: 0
   m_Name: Ghoul2
   m_TagString: Player
@@ -195,20 +194,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &161314625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7817455198690129579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b79db0480d87a4ab477f78e5a67b06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghoulAnim: {fileID: 7817455198690129557}
-  spellPrefab: {fileID: 5291437535936661157, guid: 2bcce015059ab9c45b92d66fa1b53c96,
-    type: 3}
-  fireSpeed: 100
-  hasMagic: 0

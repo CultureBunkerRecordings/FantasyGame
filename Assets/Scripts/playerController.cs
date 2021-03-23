@@ -22,18 +22,19 @@ public class playerController : MonoBehaviour
     public KeyCode leftKey;
     public KeyCode rightKey;
     public KeyCode jumpKey;
-    public bool isJumping = false;
+    public KeyCode attackKey;
 
-    public bool facingRight = true;
-    
-    private bool onGround = false;
+    public bool isJumping = false;
+    public bool isWalking = false;
+    public bool facingRight = true; 
+    public bool onGround = false;
     public bool onWall = false;
     public bool onBehindWall = false;
     public bool isWallJumping = false;
    
     public Transform GroundCheck;
-    public Transform WallCheck;
-    public Transform WallCheck2;
+    public Transform FrontCheck;
+    public Transform BackCheck;
     public float checkRadius;
     public LayerMask WhatIsGround;
 
@@ -114,8 +115,8 @@ public class playerController : MonoBehaviour
 
     void wallCheck()
     {
-        onWall = Physics2D.OverlapCircle(WallCheck.position, checkRadius, WhatIsGround);
-        onBehindWall = Physics2D.OverlapCircle(WallCheck2.position, checkRadius, WhatIsGround);
+        onWall = Physics2D.OverlapCircle(FrontCheck.position, checkRadius, WhatIsGround);
+        onBehindWall = Physics2D.OverlapCircle(BackCheck.position, checkRadius, WhatIsGround);
     }
 
     void wallJumpCheck()
@@ -226,14 +227,17 @@ public class playerController : MonoBehaviour
         if (Input.GetKey(rightKey))
         {
             x = 1;
+            isWalking = true;
         }
         else if(Input.GetKey(leftKey))
         {
             x = -1;
+            isWalking = true;
         }
         else
         {
             x = 0;
+            isWalking = false;
         }
                                  //move left and right
         rb.velocity = new Vector2(x * speed, rb.velocity.y);

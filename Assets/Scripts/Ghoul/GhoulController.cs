@@ -35,7 +35,7 @@ public class GhoulController : MonoBehaviour
 
     private void fireSpell()
     {
-        if (Input.GetKey(KeyCode.Z) && pController.pickups  > 0)
+        if (Input.GetKey(pController.attackKey) && pController.pickups  > 0)
         {
             hasMagic = true;
         }

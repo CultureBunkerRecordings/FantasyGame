@@ -7,6 +7,7 @@ public class WolfController : MonoBehaviour
     public bool turn = false;
     public float speed = 2f;
     private bool facingRight = false;
+
     // Start is called before the first frame update
     void Start()
     {
