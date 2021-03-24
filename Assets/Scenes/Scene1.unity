@@ -178,6 +178,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36525583, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &19318014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19318015}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19318015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19318014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.34, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452609126}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &22076213
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +845,7 @@ PrefabInstance:
     - target: {fileID: 3122487489669186732, guid: 653801f4d7adb064da12459d0e1fc810,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122487489669186733, guid: 653801f4d7adb064da12459d0e1fc810,
         type: 3}
@@ -1241,6 +1271,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 240333827}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &452609127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452609125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e55723b319c0984fb79fcc4d31b6107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 19318015}
+  attackRange: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &483478910
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,7 +7471,7 @@ PrefabInstance:
     - target: {fileID: 7803237895154845325, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7803237895154845326, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}

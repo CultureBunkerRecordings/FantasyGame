@@ -111,4 +111,11 @@ public class GameManager : MonoBehaviour
 
         p2Heads[headNum].SetActive(true);
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
 }
+
+

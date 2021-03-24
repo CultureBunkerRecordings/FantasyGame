@@ -9,7 +9,7 @@ public class IntroDialogTrigger : MonoBehaviour
     void Start()
     {
         dTrigger = gameObject.GetComponent<DialogueTrigger>();
-        
+        dTrigger.TriggerDialogue();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class IntroDialogTrigger : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            dTrigger.TriggerDialogue();
+           
         }
     }
 }

@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Sentences = new Queue<string>();
+        
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         sSWitcher = GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>();
 
@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        Sentences = new Queue<string>();
         isInDialogue();
         dialogueText.text = "Starting conversation with" + dialogue.name;
         Sentences.Clear();
