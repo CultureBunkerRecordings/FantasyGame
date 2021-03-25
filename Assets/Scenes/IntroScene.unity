@@ -163,6 +163,13 @@ MonoBehaviour:
       time they have grown timid in these woods, barely leaving the shadows.     '
     - 'I must return..  '
     - 'I must take back what is rightfully mine..  '
+    - Many dangers lie ahead..
+    - but i am not alone..
+    - 'A band of mercenaries stand together to put an end to this needless war.. '
+    - 'Each one of us shares a common disregard for our armies, generals and rankings. '
+    - 'Each one with our own demons. '
+    - We each have a part to play in the road ahead.
+    - decisions will be made and loyalties will be tested.
 --- !u!114 &112466189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,10 +372,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708765270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.6046019, y: 0.6046019, z: 0.6046019}
   m_Children: []
-  m_Father: {fileID: 2127184861}
+  m_Father: {fileID: 1723976231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &708765273
@@ -629,6 +636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inDialogue: 0
   dialogueText: {fileID: 1031652547}
+  screen1: {fileID: 708765270}
+  screen2: {fileID: 1954228749}
 --- !u!4 &1349679571
 Transform:
   m_ObjectHideFlags: 0
@@ -767,6 +776,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1723976230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723976231}
+  m_Layer: 0
+  m_Name: ImageController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1723976231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723976230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 708765272}
+  - {fileID: 1954228750}
+  m_Father: {fileID: 2127184861}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731169790
 GameObject:
@@ -1060,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1954228750
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,11 +1109,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954228749}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.6046019, y: 0.6046019, z: 0.6046019}
   m_Children: []
-  m_Father: {fileID: 2127184861}
+  m_Father: {fileID: 1723976231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1954228751
@@ -1206,8 +1247,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 708765272}
-  - {fileID: 1954228750}
+  - {fileID: 1723976231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

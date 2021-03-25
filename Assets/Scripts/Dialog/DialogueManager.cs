@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
 
     public Text dialogueText;
 
+    public GameObject screen1;
+    public GameObject screen2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,12 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             
             return;
+        }
+
+        if(Sentences.Count == 5)
+        {
+            screen1.SetActive(false);
+            screen2.SetActive(true);
         }
 
         string sentence = Sentences.Dequeue();
