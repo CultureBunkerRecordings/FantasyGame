@@ -38,8 +38,8 @@ public class playerController : MonoBehaviour
     public float checkRadius;
     public LayerMask WhatIsGround;
 
-    public int pickups = 0;
-    public int health = 4;
+    public int pickups;
+    public int health;
     private Rigidbody2D rb;
 
     public GameObject[] p1Character;

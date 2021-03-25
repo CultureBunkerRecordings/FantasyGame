@@ -506,13 +506,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.0034709887, b: 0.0034709887, a: 0.5529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 3292439456775737994, guid: 294205a0f23d90a49a499972d2406eda,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1556,8 +1557,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Potions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fc6fda153beb5d34cb31dc4f2630fbcd, type: 2}
+  m_sharedMaterial: {fileID: 5727540773210473859, guid: fc6fda153beb5d34cb31dc4f2630fbcd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1723,8 +1725,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Potions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fc6fda153beb5d34cb31dc4f2630fbcd, type: 2}
+  m_sharedMaterial: {fileID: 5727540773210473859, guid: fc6fda153beb5d34cb31dc4f2630fbcd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3077,7 +3080,7 @@ GameObject:
   - component: {fileID: 827239199}
   m_Layer: 8
   m_Name: ground_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4220,7 +4223,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1233374511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4978,14 +4981,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.5811762, b: 0.53123885, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5d4a76f1aa859374bbba9d2010dec1bb, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -5992,7 +5995,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1694185744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6904,14 +6907,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.5811762, b: 0.53123885, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5d4a76f1aa859374bbba9d2010dec1bb, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -7361,7 +7364,7 @@ PrefabInstance:
     - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
       propertyPath: health
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
@@ -7453,6 +7456,11 @@ PrefabInstance:
       propertyPath: BackCheck
       value: 
       objectReference: {fileID: 1115655911}
+    - target: {fileID: 836216202094049640, guid: 7937745313343f048828a95fd9ca82c3,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 836216202094049641, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
       propertyPath: m_Name
@@ -7471,7 +7479,7 @@ PrefabInstance:
     - target: {fileID: 7803237895154845325, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7803237895154845326, guid: 7937745313343f048828a95fd9ca82c3,
         type: 3}

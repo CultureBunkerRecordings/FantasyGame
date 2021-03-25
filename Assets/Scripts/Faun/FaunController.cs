@@ -27,6 +27,7 @@ public class FaunController : MonoBehaviour
     {
         FaunAnim.SetBool("hasPotion", pController.isPickingup);
         walkingAnim();
+        JumpingAnim();
         attack();
 
     }
@@ -65,5 +66,16 @@ public class FaunController : MonoBehaviour
         }
     }
 
+    void JumpingAnim()
+    {
+        if (pController.isJumping)
+        {
+            FaunAnim.SetBool("jump", true);
+        }
+        else
+        {
+            FaunAnim.SetBool("jump", false);
+        }
+    }
     
 }
