@@ -7,16 +7,25 @@ public class WolfController : MonoBehaviour
     public bool turn = false;
     public float speed = 2f;
     private bool facingRight = false;
+    public bool isMoving = false;
+    public Transform howlPoint;
+    public LayerMask playersLayer;
+    public float howlRange;
+    public bool hasSeenPlayer;
+
+    float currentTime;
+    float waitTime = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTime = Time.deltaTime;
+        howlCheck();
         movement();
     }
 
@@ -37,8 +46,8 @@ public class WolfController : MonoBehaviour
             transform.position += -Vector3.right * speed * Time.deltaTime;
             facingRight = false;
         }
+        
     }
-
     void flip()
     {
         Vector2 scale = transform.localScale;
@@ -51,15 +60,22 @@ public class WolfController : MonoBehaviour
         transform.localScale = scale;
     }
 
+    void howlCheck()
+    {
+        hasSeenPlayer = Physics2D.OverlapCircle(howlPoint.position, howlRange, playersLayer);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "TurnPointLeft")
-        {
-            turn = true;
-        }
-        else if(other.gameObject.tag == "TurnPointRight")
-        {
-            turn = false;
-        }
+            if (other.gameObject.tag == "TurnPointLeft")
+            {
+                turn = true;
+            }
+            else if (other.gameObject.tag == "TurnPointRight")
+            {
+                turn = false;
+            }
     }
+
+
 }

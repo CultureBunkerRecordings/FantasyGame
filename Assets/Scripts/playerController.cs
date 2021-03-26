@@ -39,7 +39,8 @@ public class playerController : MonoBehaviour
     public LayerMask WhatIsGround;
 
     public int pickups;
-    public int health;
+    public int health1;
+    public int health2;
     private Rigidbody2D rb;
 
     public GameObject[] p1Character;
@@ -50,7 +51,8 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.p1Health = health;
+        gameManager.p1Health = health1;
+        gameManager.p2Health = health2;
     }
 
     // Update is called once per frame
@@ -107,8 +109,19 @@ public class playerController : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            health--;
-            gameManager.updateP1Health(health);
+            if(health1 >= 0 && gameObject.name == "PlayerController") 
+            {
+                health1--;
+                gameManager.updateP1Health(health1);
+
+            }
+
+            if (health2 >= 0 && gameObject.name == "Player2Controller")
+            {
+                health2--;
+                gameManager.updateP2Health(health2);
+            }
+
         }
 
     }

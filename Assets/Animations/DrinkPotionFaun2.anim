@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HowlWolf
+  m_Name: DrinkPotionFaun2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,17 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3464957530267530825, guid: a57ba738a33aa164b816c64a5cd8b250,
+      value: {fileID: -2451211004315662269, guid: c7237a3a68f439b4db2b6ce84c83841c,
         type: 3}
-    - time: 0.11666667
-      value: {fileID: 4397048855937620179, guid: a57ba738a33aa164b816c64a5cd8b250,
+    - time: 0.35
+      value: {fileID: 3351784341019427662, guid: c7237a3a68f439b4db2b6ce84c83841c,
         type: 3}
-    - time: 0.21666667
-      value: {fileID: 6059250166160252233, guid: a57ba738a33aa164b816c64a5cd8b250,
-        type: 3}
-    - time: 0.33333334
-      value: {fileID: 8785387847765792624, guid: a57ba738a33aa164b816c64a5cd8b250,
-        type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +46,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 3464957530267530825, guid: a57ba738a33aa164b816c64a5cd8b250, type: 3}
-    - {fileID: 4397048855937620179, guid: a57ba738a33aa164b816c64a5cd8b250, type: 3}
-    - {fileID: 6059250166160252233, guid: a57ba738a33aa164b816c64a5cd8b250, type: 3}
-    - {fileID: 8785387847765792624, guid: a57ba738a33aa164b816c64a5cd8b250, type: 3}
+    - {fileID: -2451211004315662269, guid: c7237a3a68f439b4db2b6ce84c83841c, type: 3}
+    - {fileID: 3351784341019427662, guid: c7237a3a68f439b4db2b6ce84c83841c, type: 3}
+    - {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
