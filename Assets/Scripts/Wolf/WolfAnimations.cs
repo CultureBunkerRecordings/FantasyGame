@@ -17,6 +17,7 @@ public class WolfAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        howlAnim();
         runAnim();
     }
 

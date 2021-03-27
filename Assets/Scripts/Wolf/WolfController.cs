@@ -13,8 +13,9 @@ public class WolfController : MonoBehaviour
     public float howlRange;
     public bool hasSeenPlayer;
 
-    float currentTime;
-    float waitTime = 1;
+    public bool timeReached = false;
+    float timer;
+    float waitTime = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,6 @@ public class WolfController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime = Time.deltaTime;
         howlCheck();
         movement();
     }
@@ -33,6 +33,8 @@ public class WolfController : MonoBehaviour
     {
         flip();
     }
+
+    
 
     void movement()
     {
@@ -45,9 +47,9 @@ public class WolfController : MonoBehaviour
         {
             transform.position += -Vector3.right * speed * Time.deltaTime;
             facingRight = false;
-        }
-        
+        }   
     }
+
     void flip()
     {
         Vector2 scale = transform.localScale;

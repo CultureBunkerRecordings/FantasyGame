@@ -21,6 +21,7 @@ public class SkeletonController : MonoBehaviour
     void Update()
     {
         attack();
+        jump();
     }
 
     void attack()
@@ -35,6 +36,18 @@ public class SkeletonController : MonoBehaviour
                 Debug.Log(enemy.name + "Hit");
                 enemy.GetComponent<EnemyHealth>().takeDamage();
             }
+        }
+    }
+
+    void jump()
+    {
+        if (pController.isJumping)
+        {
+            skeletonAnim.SetBool("jump", true);
+        }
+        else
+        {
+            skeletonAnim.SetBool("jump", false);
         }
     }
 }
