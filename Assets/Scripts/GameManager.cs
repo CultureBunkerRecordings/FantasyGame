@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     private static GameManager singltonInstance;
 
     public GameObject TitleScreen;
-    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI p1PotionsText;
+    public TextMeshProUGUI p2PotionsText;
     public bool gamePlaying = false;
-    public int score;
+    public int p1Potions;
+    public int p2Potions;
     public int p1Health;
     public int p2Health;
 
@@ -48,7 +50,8 @@ public class GameManager : MonoBehaviour
     {
         if(TitleScreen != null)
         {
-            updateScore(0);
+            updateP1Potions(0);
+            updateP2Potions(0);
             updateP1Health(p1Health);
             updateP2Health(p2Health);
             TitleScreen.SetActive(false);
@@ -62,10 +65,16 @@ public class GameManager : MonoBehaviour
     {
     }
 
-    public void updateScore(int scoreToAdd)
+    public void updateP1Potions(int potionsToAdd)
     {
-        score = scoreToAdd;
-        ScoreText.SetText("Potions: " + score);
+        p1Potions = potionsToAdd;
+        p1PotionsText.SetText("Potions: " + p1Potions);
+    }
+
+    public void updateP2Potions(int potionsToAdd)
+    {
+        p2Potions = potionsToAdd;
+        p2PotionsText.SetText("Potions: " + p2Potions);
     }
 
     public void updateP1Health(int healthToAdd)

@@ -35,16 +35,16 @@ public class GhoulController2 : MonoBehaviour
 
     private void fireSpell()
     {
-        if (Input.GetKey(KeyCode.Z) && p2Controller.pickups  > 0)
+        if (Input.GetKey(p2Controller.attackKey) && p2Controller.p2Potions  > 0)
         {
             hasMagic = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) && p2Controller.pickups > 0)
+        else if (Input.GetKeyUp(p2Controller.attackKey) && p2Controller.p2Potions > 0)
         {
             var newSpellPrefab = Instantiate(spellPrefab, transform.position, transform.rotation);
             newSpellPrefab.GetComponent<Rigidbody2D>().AddForce(spellDirection * fireSpeed);
-            p2Controller.pickups--;
-            gManager.updateScore(p2Controller.pickups);
+            p2Controller.p2Potions--;
+            gManager.updateP1Potions(p2Controller.p2Potions);
             hasMagic = false;
         }
         else

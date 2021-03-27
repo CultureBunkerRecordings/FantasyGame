@@ -38,7 +38,9 @@ public class playerController : MonoBehaviour
     public float checkRadius;
     public LayerMask WhatIsGround;
 
-    public int pickups;
+    public int p1Potions;
+    public int p2Potions;
+
     public int health1;
     public int health2;
     private Rigidbody2D rb;
@@ -98,9 +100,18 @@ public class playerController : MonoBehaviour
         {
             isPickingup = true;
             Destroy(collision.gameObject);
-            pickups = gameManager.score;
-            pickups++;
-            gameManager.updateScore(pickups);
+            if (gameObject.name == "PlayerController")
+            {
+                p1Potions = gameManager.p1Potions;
+                p1Potions++;
+                gameManager.updateP1Potions(p1Potions);
+            }
+            else if (gameObject.name == "Player2Controller")
+            {
+                p2Potions = gameManager.p2Potions;
+                p2Potions++;
+                gameManager.updateP2Potions(p2Potions);
+            }
         }
         else
         {
