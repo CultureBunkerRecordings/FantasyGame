@@ -202,6 +202,17 @@ public class playerController : MonoBehaviour
         gameManager.updatePlayer1Character(2);
     }
 
+    public void P1WerewolfSelect()
+    {
+        foreach (var c in p1Character)
+        {
+            c.SetActive(false);
+        }
+
+        p1Character[3].SetActive(true);
+        gameManager.updatePlayer1Character(3);
+    }
+
     public void P2FaunSelect()
     {
         foreach (var c in p2Character)
@@ -233,6 +244,17 @@ public class playerController : MonoBehaviour
 
         p2Character[2].SetActive(true);
         gameManager.updatePlayer2Character(2);
+    }
+
+    public void P2WerewolfSelect()
+    {
+        foreach (var c in p2Character)
+        {
+            c.SetActive(false);
+        }
+
+        p2Character[3].SetActive(true);
+        gameManager.updatePlayer2Character(3);
     }
 
     private void movement()
