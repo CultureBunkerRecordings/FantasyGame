@@ -17,16 +17,21 @@ public class WolfController : MonoBehaviour
     float timer;
     float waitTime = 20;
 
+    bool leftOrRightTarget;
+    public Transform leftTarget;
+    public Transform rightTarget;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(moveAndWait(leftTarget.position, rightTarget.position));
     }
 
     // Update is called once per frame
     void Update()
     {
+
         howlCheck();
-        movement();
     }
 
     private void LateUpdate()
@@ -34,20 +39,38 @@ public class WolfController : MonoBehaviour
         flip();
     }
 
-    
-
-    void movement()
+    IEnumerator moveAndWait(Vector2 leftTarget, Vector2 rightTarget)
     {
+        while (Vector2.Distance(transform.position, leftTarget) > 0.2 && !facingRight)
+        {
+            isMoving = true;
+            transform.position += -Vector3.right * speed * Time.deltaTime;
+            yield return null;
+        }
+        while (Vector2.Distance(transform.position, rightTarget) > 0.2 && facingRight)
+        {
+            isMoving = true;
+            transform.position += Vector3.right * speed * Time.deltaTime;
+            yield return null;
+        }
+
+        if(Vector2.Distance(transform.position, leftTarget) < 0.2 || Vector2.Distance(transform.position, rightTarget) < 0.2)
+        {
+            isMoving = false;
+        }
+
+        yield return new WaitForSeconds(2);
+
         if (turn)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
             facingRight = true;
         }
         else
         {
-            transform.position += -Vector3.right * speed * Time.deltaTime;
             facingRight = false;
-        }   
+        }
+
+        yield return moveAndWait(leftTarget, rightTarget);   
     }
 
     void flip()

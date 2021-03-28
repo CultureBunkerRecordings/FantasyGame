@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour
     public KeyCode rightKey;
     public KeyCode jumpKey;
     public KeyCode attackKey;
+    public KeyCode downKey;
 
     public bool isJumping = false;
     public bool isWalking = false;

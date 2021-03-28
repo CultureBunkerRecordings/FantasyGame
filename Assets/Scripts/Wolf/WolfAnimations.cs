@@ -23,7 +23,7 @@ public class WolfAnimations : MonoBehaviour
 
     void runAnim()
     {
-        if(wController.isMoving && !wController.hasSeenPlayer)
+        if(wController.isMoving)
         {
             wolfAnim.SetBool("running", true);
         }

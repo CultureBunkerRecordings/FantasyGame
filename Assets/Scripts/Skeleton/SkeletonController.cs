@@ -6,6 +6,8 @@ public class SkeletonController : MonoBehaviour
 {
     playerController pController;
     public Transform attackPoint;
+    public Transform stompPoint;
+    public float stompRange;
     public float attackRange;
     public LayerMask enemyLayer;
 
@@ -22,6 +24,7 @@ public class SkeletonController : MonoBehaviour
     {
         attack();
         jump();
+        stomp();
     }
 
     void attack()
@@ -48,6 +51,26 @@ public class SkeletonController : MonoBehaviour
         else
         {
             skeletonAnim.SetBool("jump", false);
+        }
+    }
+
+    void stomp()
+    {
+        if (Input.GetKey(pController.downKey) && pController.isJumping)
+        {
+            skeletonAnim.SetBool("stomp", true);
+
+            Collider2D[] enemys = Physics2D.OverlapCircleAll(stompPoint.position, stompRange, enemyLayer);
+
+            foreach (var enemy in enemys)
+            {
+                Debug.Log(enemy.name + "Hit");
+                enemy.GetComponent<EnemyHealth>().takeDamage();
+            }
+        }
+        else
+        {
+            skeletonAnim.SetBool("stomp", false);
         }
     }
 }

@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     SpriteRenderer enemyColour;
     public int health = 10;
+    float flashTime = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +16,23 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    void enemyFlash()
+    {
+        enemyColour.color = Color.red;
+    }
+
+    void enemyFlashBack()
+    {
         enemyColour.color = Color.white;
     }
 
     public void takeDamage()
     {
         health--;
-        enemyColour.color = Color.black;
+        enemyFlash();
+        Invoke("enemyFlashBack", flashTime);
         if (health <= 0)
         {
             Destroy(gameObject);

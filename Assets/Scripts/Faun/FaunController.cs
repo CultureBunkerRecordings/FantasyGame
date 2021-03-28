@@ -7,34 +7,38 @@ public class FaunController : MonoBehaviour
 
     private Animator FaunAnim;
     playerController pController;
-
+    GameManager gManager;
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
-
     WolfController wolf;
 
+    GameObject spellPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         pController = GameObject.Find("PlayerController").GetComponent<playerController>();
         FaunAnim = GetComponent<Animator>();
+        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FaunAnim.SetBool("hasPotion", pController.isPickingup);
+        blueAttack();
+        hasBluePotion();
         walkingAnim();
         JumpingAnim();
         attack();
+        drinkPotion();
+
 
     }
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey))
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions<1)
         {
             FaunAnim.SetTrigger("attack");
 
@@ -78,4 +82,31 @@ public class FaunController : MonoBehaviour
         }
     }
     
+    void drinkPotion()
+    {
+        FaunAnim.SetBool("hasPotion", pController.isPickingup);
+    }
+
+    void hasBluePotion()
+    {
+        if (pController.p1Potions > 0 && pController.isPickingup)
+        {
+            FaunAnim.SetTrigger("hasBluePotion");
+        }
+    }
+
+    void blueAttack()
+    {
+        if(Input.GetKeyDown(pController.attackKey))
+        {
+            FaunAnim.SetBool("blueAttack", true);
+            pController.p1Potions--;
+            gManager.updateP1Potions(pController.p1Potions);
+        }
+        else
+        {
+            FaunAnim.SetBool("blueAttack", false);
+
+        }
+    }
 }
