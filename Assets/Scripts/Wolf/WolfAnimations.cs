@@ -11,7 +11,6 @@ public class WolfAnimations : MonoBehaviour
     {
         wController = GetComponent<WolfController>();
         wolfAnim = GetComponent<Animator>();
-        StartCoroutine("howlCoRoutine");
     }
 
     // Update is called once per frame
@@ -35,16 +34,10 @@ public class WolfAnimations : MonoBehaviour
 
     void howlAnim()
     {
-        if (wController.hasSeenPlayer)
+        if (wController.attackingPlayer)
         {
             wolfAnim.SetTrigger("howl");
         }
-    }
-
-    IEnumerator howlCoRoutine()
-    {
-        howlAnim();
-        yield return new WaitForSeconds(0.5f);
     }
 
 }

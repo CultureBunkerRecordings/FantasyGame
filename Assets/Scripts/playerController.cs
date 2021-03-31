@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour
     DialogueManager dManager = default;
     DialogueTrigger dTrigger;
 
+    CharacterController controller;
     bool isInDialogue = false;
     public bool isPickingup = false;
 
@@ -17,16 +18,18 @@ public class playerController : MonoBehaviour
     public float jumpForce;
 
     private float x = 0;
-    private float y;
+    private float z;
 
     public KeyCode leftKey;
     public KeyCode rightKey;
     public KeyCode jumpKey;
     public KeyCode attackKey;
+    public KeyCode upKey;
     public KeyCode downKey;
 
     public bool isJumping = false;
-    public bool isWalking = false;
+    public bool isWalkingAcross = false;
+    public bool isWalkingUp = false;
     public bool facingRight = true; 
     public bool onGround = false;
     public bool onWall = false;
@@ -44,7 +47,7 @@ public class playerController : MonoBehaviour
 
     public int health1;
     public int health2;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     public GameObject[] p1Character;
     public GameObject[] p2Character;
@@ -52,7 +55,7 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.p1Health = health1;
         gameManager.p2Health = health2;
@@ -72,7 +75,7 @@ public class playerController : MonoBehaviour
         }
 
         if (gameManager.gamePlaying && !isInDialogue)
-        {
+        { 
             groundCheck();
             wallCheck();
             wallJumpCheck();
@@ -86,7 +89,7 @@ public class playerController : MonoBehaviour
     {
         if (gameManager.gamePlaying)
         {
-            movement();
+            movement();   
         }
     }
 
@@ -95,7 +98,7 @@ public class playerController : MonoBehaviour
         flip();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Pickups")
         {
@@ -140,8 +143,10 @@ public class playerController : MonoBehaviour
 
     void wallCheck()
     {
-        onWall = Physics2D.OverlapCircle(FrontCheck.position, checkRadius, WhatIsGround);
-        onBehindWall = Physics2D.OverlapCircle(BackCheck.position, checkRadius, WhatIsGround);
+        onWall = Physics.CheckSphere(FrontCheck.position, checkRadius, WhatIsGround);
+        onBehindWall = Physics.CheckSphere(BackCheck.position, checkRadius, WhatIsGround);
+
+       
     }
 
     void wallJumpCheck()
@@ -158,14 +163,14 @@ public class playerController : MonoBehaviour
 
     void groundCheck()
     {
-        onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, WhatIsGround);
+        onGround = Physics.CheckSphere(GroundCheck.position, checkRadius, WhatIsGround);
     }
 
     private void jump()
     {
         if (Input.GetKeyDown(jumpKey) && (onGround == true || onBehindWall == true))            // jump
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }  
     }
 
@@ -274,20 +279,39 @@ public class playerController : MonoBehaviour
         if (Input.GetKey(rightKey))
         {
             x = 1;
-            isWalking = true;
+            isWalkingAcross = true;
         }
         else if(Input.GetKey(leftKey))
         {
             x = -1;
-            isWalking = true;
+            isWalkingAcross = true;
         }
         else
         {
             x = 0;
-            isWalking = false;
+            isWalkingAcross = false;
         }
-                                 //move left and right
-        rb.velocity = new Vector2(x * speed, rb.velocity.y);
+
+
+        if (Input.GetKey(upKey))
+        {
+            z = 1;
+            isWalkingUp = true;
+        }
+        else if (Input.GetKey(downKey))
+        {
+            z = -1;
+            isWalkingUp = true;
+        }
+        else
+        {
+            z = 0;
+            isWalkingUp = false;
+        }
+
+
+        //move left and right
+        rb.velocity = new Vector3(x * speed, rb.velocity.y, z * speed);
     }
 
     private void flip()
@@ -308,7 +332,6 @@ public class playerController : MonoBehaviour
             scale.x *= -1;
         }
         transform.localScale = scale;
-
     }
 
     private void InDialogue()

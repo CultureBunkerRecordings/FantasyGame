@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class WolfController : MonoBehaviour
 {
-    public bool turn = false;
     public float speed = 2f;
     private bool facingRight = false;
     public bool isMoving = false;
-    public Transform howlPoint;
+    public Transform attackPoint;
     public LayerMask playersLayer;
-    public float howlRange;
-    public bool hasSeenPlayer;
+    public float attackRange;
+    public bool attackingPlayer;
 
-    public bool timeReached = false;
-    float timer;
-    float waitTime = 20;
+    public GameObject player1;
+    public GameObject player2;
 
-    bool leftOrRightTarget;
-    public Transform leftTarget;
-    public Transform rightTarget;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(moveAndWait(leftTarget.position, rightTarget.position));
+        rb = GetComponent<Rigidbody>();
+        player1 = GameObject.Find("PlayerController");
+        player2 = GameObject.Find("Player2Controller");
     }
 
     // Update is called once per frame
     void Update()
     {
+        attackCheck();
+        moveToPlayers();
 
-        howlCheck();
     }
 
     private void LateUpdate()
@@ -39,39 +38,6 @@ public class WolfController : MonoBehaviour
         flip();
     }
 
-    IEnumerator moveAndWait(Vector2 leftTarget, Vector2 rightTarget)
-    {
-        while (Vector2.Distance(transform.position, leftTarget) > 0.2 && !facingRight)
-        {
-            isMoving = true;
-            transform.position += -Vector3.right * speed * Time.deltaTime;
-            yield return null;
-        }
-        while (Vector2.Distance(transform.position, rightTarget) > 0.2 && facingRight)
-        {
-            isMoving = true;
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            yield return null;
-        }
-
-        if(Vector2.Distance(transform.position, leftTarget) < 0.2 || Vector2.Distance(transform.position, rightTarget) < 0.2)
-        {
-            isMoving = false;
-        }
-
-        yield return new WaitForSeconds(2);
-
-        if (turn)
-        {
-            facingRight = true;
-        }
-        else
-        {
-            facingRight = false;
-        }
-
-        yield return moveAndWait(leftTarget, rightTarget);   
-    }
 
     void flip()
     {
@@ -85,22 +51,53 @@ public class WolfController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    void howlCheck()
+    void attackCheck()
     {
-        hasSeenPlayer = Physics2D.OverlapCircle(howlPoint.position, howlRange, playersLayer);
+        attackingPlayer = Physics.CheckSphere(attackPoint.position, attackRange, playersLayer);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void moveToPlayers()
     {
-            if (other.gameObject.tag == "TurnPointLeft")
+        if(Vector3.Distance(transform.position, player1.transform.position) < Vector3.Distance(transform.position, player2.transform.position))
+        {
+            Vector3 pointToPlayer1 = (player1.transform.position - transform.position).normalized;
+            rb.AddForce(pointToPlayer1 * speed);
+            if(pointToPlayer1.x > 0)
             {
-                turn = true;
+                facingRight = true;
+                isMoving = true;
             }
-            else if (other.gameObject.tag == "TurnPointRight")
+            else if(pointToPlayer1.x < 0)
             {
-                turn = false;
+                facingRight = false;
+                isMoving = true;
             }
-    }
+            else
+            {
+                isMoving = false;
+            }
+        }
+        else
+        {
+            Vector3 pointToPlayer2 = (player2.transform.position - transform.position).normalized;
+            rb.AddForce(pointToPlayer2 * speed); 
 
+            if(pointToPlayer2.x > 0)
+            {
+                facingRight = true;
+                isMoving = true;
+            }
+            else if(pointToPlayer2.x < 0)
+            {
+                facingRight = false;
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+        }
+        
+    }
 
 }

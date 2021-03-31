@@ -26,14 +26,13 @@ public class FaunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        stomp();
         blueAttack();
         hasBluePotion();
         walkingAnim();
         JumpingAnim();
         attack();
         drinkPotion();
-
-
     }
 
     void attack()
@@ -42,7 +41,7 @@ public class FaunController : MonoBehaviour
         {
             FaunAnim.SetTrigger("attack");
 
-            Collider2D[] enemyHits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayer);
+            Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
 
             foreach(var enemy in enemyHits)
             {
@@ -53,6 +52,18 @@ public class FaunController : MonoBehaviour
 
     }
 
+    void stomp()
+    {
+        if (Input.GetKey(pController.downKey) && pController.isJumping)
+        {
+            FaunAnim.SetBool("stomp", true);
+        }
+        else
+        {
+            FaunAnim.SetBool("stomp", false);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
@@ -60,7 +71,7 @@ public class FaunController : MonoBehaviour
 
     void walkingAnim()
     {
-        if (pController.isWalking && pController.onGround)
+        if (pController.isWalkingAcross && pController.isWalkingUp && pController.onGround)
         {
             FaunAnim.SetBool("walk", true);
         }
@@ -100,7 +111,12 @@ public class FaunController : MonoBehaviour
         if(Input.GetKeyDown(pController.attackKey))
         {
             FaunAnim.SetBool("blueAttack", true);
-            pController.p1Potions--;
+            
+            if(pController.p1Potions > 0)
+            {
+                pController.p1Potions--;
+            }
+
             gManager.updateP1Potions(pController.p1Potions);
         }
         else

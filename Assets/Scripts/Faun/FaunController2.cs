@@ -56,7 +56,7 @@ public class FaunController2 : MonoBehaviour
 
     void walkingAnim()
     {
-        if (pController.isWalking && pController.onGround)
+        if ((pController.isWalkingAcross && pController.isWalkingUp) && pController.onGround)
         {
             FaunAnim.SetBool("walk", true);
         }
