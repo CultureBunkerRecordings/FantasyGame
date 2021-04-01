@@ -5,15 +5,14 @@ using UnityEngine;
 public class WolfController : MonoBehaviour
 {
     public float speed = 2f;
-    private bool facingRight = false;
+    public bool facingRight = false;
     public bool isMoving = false;
     public Transform attackPoint;
     public LayerMask playersLayer;
     public float attackRange;
     public bool attackingPlayer;
 
-    public GameObject player1;
-    public GameObject player2;
+    GameManager gManager;
 
     Rigidbody rb;
 
@@ -21,16 +20,13 @@ public class WolfController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player1 = GameObject.Find("PlayerController");
-        player2 = GameObject.Find("Player2Controller");
+        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         attackCheck();
-        moveToPlayers();
-
     }
 
     private void LateUpdate()
@@ -56,48 +52,5 @@ public class WolfController : MonoBehaviour
         attackingPlayer = Physics.CheckSphere(attackPoint.position, attackRange, playersLayer);
     }
 
-    void moveToPlayers()
-    {
-        if(Vector3.Distance(transform.position, player1.transform.position) < Vector3.Distance(transform.position, player2.transform.position))
-        {
-            Vector3 pointToPlayer1 = (player1.transform.position - transform.position).normalized;
-            rb.AddForce(pointToPlayer1 * speed);
-            if(pointToPlayer1.x > 0)
-            {
-                facingRight = true;
-                isMoving = true;
-            }
-            else if(pointToPlayer1.x < 0)
-            {
-                facingRight = false;
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
-        }
-        else
-        {
-            Vector3 pointToPlayer2 = (player2.transform.position - transform.position).normalized;
-            rb.AddForce(pointToPlayer2 * speed); 
-
-            if(pointToPlayer2.x > 0)
-            {
-                facingRight = true;
-                isMoving = true;
-            }
-            else if(pointToPlayer2.x < 0)
-            {
-                facingRight = false;
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
-        }
-        
-    }
 
 }

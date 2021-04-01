@@ -5,12 +5,14 @@ using UnityEngine;
 public class WolfAnimations : MonoBehaviour
 {
     WolfController wController;
+    WolfNavMeshController wNav;
     Animator wolfAnim;
     // Start is called before the first frame update
     void Start()
     {
         wController = GetComponent<WolfController>();
         wolfAnim = GetComponent<Animator>();
+        wNav = GetComponentInParent<WolfNavMeshController>();
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class WolfAnimations : MonoBehaviour
 
     void runAnim()
     {
-        if(wController.isMoving)
+        if(wNav.isMoving)
         {
             wolfAnim.SetBool("running", true);
         }
