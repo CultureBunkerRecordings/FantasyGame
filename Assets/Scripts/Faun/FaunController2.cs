@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class FaunController2 : MonoBehaviour
 {
-
+    public ParticleSystem particles;
     private Animator FaunAnim;
     playerController pController;
-
+    GameManager gManager;
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
-
     WolfController wolf;
 
-
+    GameObject spellPrefab;
+    bool hasPotion;
+    bool hasPickedUp;
     // Start is called before the first frame update
     void Start()
     {
         pController = GameObject.Find("Player2Controller").GetComponent<playerController>();
         FaunAnim = GetComponent<Animator>();
+        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FaunAnim.SetBool("hasPotion", pController.isPickingup);
+        //stomp();
+        drinkPotion();
+        blueAttack();
         walkingAnim();
         JumpingAnim();
         attack();
-
     }
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey))
+        if (Input.GetKeyDown(pController.attackKey) && pController.p2Potions == 0)
         {
             FaunAnim.SetTrigger("attack");
 
-            Collider2D[] enemyHits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayer);
+            Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
 
             foreach (var enemy in enemyHits)
             {
@@ -49,6 +52,18 @@ public class FaunController2 : MonoBehaviour
 
     }
 
+    void stomp()
+    {
+        if (Input.GetKey(pController.downKey) && pController.isJumping)
+        {
+            FaunAnim.SetBool("stomp", true);
+        }
+        else
+        {
+            FaunAnim.SetBool("stomp", false);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
@@ -56,7 +71,7 @@ public class FaunController2 : MonoBehaviour
 
     void walkingAnim()
     {
-        if ((pController.isWalkingAcross && pController.isWalkingUp) && pController.onGround)
+        if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
         {
             FaunAnim.SetBool("walk", true);
         }
@@ -78,4 +93,24 @@ public class FaunController2 : MonoBehaviour
         }
     }
 
+    void drinkPotion()
+    {
+        if (pController.isPickingup)
+        {
+            FaunAnim.SetTrigger("drinkPotion");
+        }
+    }
+
+
+    void blueAttack()
+    {
+        if (Input.GetKeyDown(pController.attackKey) && pController.p2Potions > 0)
+        {
+            FaunAnim.SetTrigger("blueAttack");
+            particles.Play();
+            pController.p2Potions--;
+            gManager.updateP2Potions(pController.p2Potions);
+        }
+
+    }
 }

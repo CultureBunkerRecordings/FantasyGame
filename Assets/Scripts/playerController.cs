@@ -75,7 +75,7 @@ public class playerController : MonoBehaviour
         }
 
         if (gameManager.gamePlaying && !isInDialogue)
-        { 
+        {
             groundCheck();
             wallCheck();
             wallJumpCheck();
@@ -95,6 +95,7 @@ public class playerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        isPickingup = false;
         flip();
     }
 
@@ -102,7 +103,6 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pickups")
         {
-            isPickingup = true;
             Destroy(collision.gameObject);
             if (gameObject.name == "PlayerController")
             {
@@ -116,6 +116,7 @@ public class playerController : MonoBehaviour
                 p2Potions++;
                 gameManager.updateP2Potions(p2Potions);
             }
+            isPickingup = true;
         }
         else
         {

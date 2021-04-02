@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 836216202094049623}
   - component: {fileID: 836216202094049640}
   - component: {fileID: 7279793665726653604}
-  - component: {fileID: 7279793665726653607}
   - component: {fileID: 7279793665726653605}
   m_Layer: 10
   m_Name: PlayerController
@@ -186,20 +185,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &7279793665726653607
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836216202094049641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.34295642
-  m_Height: 1.1047206
-  m_Direction: 1
-  m_Center: {x: 0.014956474, y: -0.05235958, z: -0.00000011920929}
 --- !u!114 &7279793665726653605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26668e38e8e2e92489497c3f7d70cd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &452609127
 MonoBehaviour:
   m_ObjectHideFlags: 0

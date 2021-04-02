@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackFaun
+  m_Name: BlueSpellAttackFaun2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
-    - time: 0.16666667
-      value: {fileID: -4056282816353152559, guid: 12c437304bee3ca4d9ba6690bcfe6540,
+      value: {fileID: -3496331056699320670, guid: 985d6eb832db5e440b6def82110864b5,
         type: 3}
-    - time: 0.25
-      value: {fileID: -323033428708631172, guid: 12c437304bee3ca4d9ba6690bcfe6540,
+    - time: 0.28333333
+      value: {fileID: -6579421673723868874, guid: 985d6eb832db5e440b6def82110864b5,
+        type: 3}
+    - time: 0.55
+      value: {fileID: -7255648361269047211, guid: 985d6eb832db5e440b6def82110864b5,
+        type: 3}
+    - time: 0.8333333
+      value: {fileID: -7255648361269047211, guid: 985d6eb832db5e440b6def82110864b5,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,15 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
-    - {fileID: -4056282816353152559, guid: 12c437304bee3ca4d9ba6690bcfe6540, type: 3}
-    - {fileID: -323033428708631172, guid: 12c437304bee3ca4d9ba6690bcfe6540, type: 3}
+    - {fileID: -3496331056699320670, guid: 985d6eb832db5e440b6def82110864b5, type: 3}
+    - {fileID: -6579421673723868874, guid: 985d6eb832db5e440b6def82110864b5, type: 3}
+    - {fileID: -7255648361269047211, guid: 985d6eb832db5e440b6def82110864b5, type: 3}
+    - {fileID: -7255648361269047211, guid: 985d6eb832db5e440b6def82110864b5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.84999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

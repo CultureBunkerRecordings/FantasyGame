@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FaunController : MonoBehaviour
 {
-
+    public ParticleSystem particles;
     private Animator FaunAnim;
     playerController pController;
     GameManager gManager;
@@ -14,7 +14,8 @@ public class FaunController : MonoBehaviour
     WolfController wolf;
 
     GameObject spellPrefab;
-
+    bool hasPotion;
+    bool hasPickedUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,18 +27,18 @@ public class FaunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stomp();
+        //stomp();
+        drinkPotion();
         blueAttack();
-        hasBluePotion();
+        //hasBluePotion();
         walkingAnim();
         JumpingAnim();
         attack();
-        drinkPotion();
     }
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions<1)
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0)
         {
             FaunAnim.SetTrigger("attack");
 
@@ -71,7 +72,7 @@ public class FaunController : MonoBehaviour
 
     void walkingAnim()
     {
-        if (pController.isWalkingAcross && pController.isWalkingUp && pController.onGround)
+        if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
         {
             FaunAnim.SetBool("walk", true);
         }
@@ -95,34 +96,23 @@ public class FaunController : MonoBehaviour
     
     void drinkPotion()
     {
-        FaunAnim.SetBool("hasPotion", pController.isPickingup);
+        if (pController.isPickingup)
+        {
+            FaunAnim.SetTrigger("drinkPotion");
+        }
+
     }
 
-    void hasBluePotion()
-    {
-        if (pController.p1Potions > 0 && pController.isPickingup)
-        {
-            FaunAnim.SetTrigger("hasBluePotion");
-        }
-    }
 
     void blueAttack()
     {
-        if(Input.GetKeyDown(pController.attackKey))
+        if(Input.GetKeyDown(pController.attackKey) && pController.p1Potions > 0)
         {
-            FaunAnim.SetBool("blueAttack", true);
-            
-            if(pController.p1Potions > 0)
-            {
-                pController.p1Potions--;
-            }
-
+            FaunAnim.SetTrigger("blueAttack");
+            particles.Play();
+            pController.p1Potions--;
             gManager.updateP1Potions(pController.p1Potions);
         }
-        else
-        {
-            FaunAnim.SetBool("blueAttack", false);
 
-        }
     }
 }
