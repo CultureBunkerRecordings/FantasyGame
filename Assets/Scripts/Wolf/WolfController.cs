@@ -26,7 +26,10 @@ public class WolfController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attackCheck();
+        if (gManager.gamePlaying)
+        {
+            attackCheck();
+        }
     }
 
     private void LateUpdate()

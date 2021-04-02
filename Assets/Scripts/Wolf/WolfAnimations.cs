@@ -7,9 +7,11 @@ public class WolfAnimations : MonoBehaviour
     WolfController wController;
     WolfNavMeshController wNav;
     Animator wolfAnim;
+    GameManager gManager;
     // Start is called before the first frame update
     void Start()
     {
+        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         wController = GetComponent<WolfController>();
         wolfAnim = GetComponent<Animator>();
         wNav = GetComponentInParent<WolfNavMeshController>();
@@ -18,8 +20,12 @@ public class WolfAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        howlAnim();
-        runAnim();
+        if (gManager.gamePlaying)
+        {
+            howlAnim();
+            runAnim();
+        }
+       
     }
 
     void runAnim()

@@ -82,6 +82,8 @@ public class playerController : MonoBehaviour
 
             jumpingCheck();
             jump();
+
+            pause();
         }
     }
 
@@ -140,6 +142,15 @@ public class playerController : MonoBehaviour
 
         }
 
+    }
+
+
+    void pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.pauseGame();
+        }
     }
 
     void wallCheck()

@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     private static GameManager singltonInstance;
 
     public GameObject TitleScreen;
+    public GameObject PauseScreen;
     public TextMeshProUGUI p1PotionsText;
     public TextMeshProUGUI p2PotionsText;
     public bool gamePlaying = false;
+    public bool gamePaused = false;
     public int p1Potions;
     public int p2Potions;
     public int p1Health;
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void playGame()
     {
-        if(TitleScreen != null)
+        if(TitleScreen != null && !gamePaused)
         {
             updateP1Potions(0);
             updateP2Potions(0);
@@ -58,6 +60,13 @@ public class GameManager : MonoBehaviour
         }
         
         gamePlaying = true;
+    }
+
+    public void pauseGame()
+    {
+        gamePlaying = false;
+        gamePaused = true;
+        PauseScreen.SetActive(true);
     }
 
     // Update is called once per frame
