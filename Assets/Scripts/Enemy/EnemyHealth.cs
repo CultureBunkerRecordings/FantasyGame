@@ -35,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         Invoke("enemyFlashBack", flashTime);
         if (health <= 0)
         {
+            Destroy(gameObject.transform.parent.gameObject);
             Destroy(gameObject);
         }
     }

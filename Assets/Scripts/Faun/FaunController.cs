@@ -15,6 +15,7 @@ public class FaunController : MonoBehaviour
     GameObject spellPrefab;
     bool hasPotion;
     bool hasPickedUp;
+    bool kicking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +31,18 @@ public class FaunController : MonoBehaviour
         drinkPotion();
         blueAttack();
         //hasBluePotion();
+        kick();
         walkingAnim();
         JumpingAnim();
         attack();
+        
     }
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0)
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0 && !Input.GetKeyDown(pController.downKey))
         {
-            FaunAnim.SetTrigger("attack");
+            FaunAnim.SetBool("attack", true);
 
             Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
 
@@ -48,6 +51,10 @@ public class FaunController : MonoBehaviour
                 Debug.Log(enemy.name + "Hit");
                 enemy.GetComponent<EnemyHealth>().takeDamage();
             }
+        }
+        else
+        {
+            FaunAnim.SetBool("attack", false);
         }
 
     }
@@ -123,4 +130,35 @@ public class FaunController : MonoBehaviour
         }
 
     }
+
+    void kick()
+    {
+        if (Input.GetKey(pController.downKey))
+        {
+            if (Input.GetKeyDown(pController.attackKey))
+            {
+                pController.kicking = true;
+
+                FaunAnim.SetBool("kick", true);
+
+                Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
+
+                foreach (var enemy in enemyHits)
+                {
+                    Debug.Log(enemy.name + "Hit");
+                    enemy.GetComponent<EnemyHealth>().takeDamage();
+                }
+            }
+            else
+            {
+                FaunAnim.SetBool("kick", false);
+            }
+        }
+        else if (Input.GetKeyUp(pController.downKey))
+        {
+            pController.kicking = false;
+        }
+
+    }
+
 }

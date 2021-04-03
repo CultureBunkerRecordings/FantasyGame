@@ -4,50 +4,55 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject wolfPrefab;
     public GameObject redPotionPrefab;
     public GameObject greenPotionPrefab;
     public GameObject bluePotionPrefab;
     public GameObject purplePotionPrefab;
     GameObject chosenPotion;
 
+    public GameObject wolfArmyPrefab;
+    public GameObject shroomArmyPrefab;
+    public GameObject ghoulArmyPrefab;
+    public GameObject skeletonArmyPrefab;
+    GameObject chosenEnemy;
 
-    public int numWolvesToSpawn = 4;
-    int numWolves;
-    public enum Potions { redPotion, bluePotion, greenPotion, purplePotion };
+    public int numEnemiesToSpawn = 4;
+    int numEnemies;
+    
     // Start is called before the first frame update
     void Start()
     {
-        spawnWolves(numWolvesToSpawn);
+        Invoke("spawnEnemy", 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        nextWave();
         randomPotion();
+        randomEnemy();
+        nextWave();
     }
 
-    void spawnWolves(int numWolves)
+    void spawnEnemy(int numEnemies)
     {
-        for(int i = 0; i < numWolves; i++)
+        for(int i = 0; i < numEnemies; i++)
         {
-            Instantiate(wolfPrefab, transform.position, Quaternion.identity);
+            Instantiate(chosenEnemy, transform.position, Quaternion.identity);
         }
     }
 
-    int wolfCount()
+    int enemyCount()
     {
-        numWolves = GameObject.FindObjectsOfType<WolfController>().Length;
-        return numWolves;
+        numEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        return numEnemies;
     }
 
     void nextWave()
     {
-        if(wolfCount() == 0)
+        if(enemyCount() == 0)
         {
-            numWolvesToSpawn++;
-            spawnWolves(numWolvesToSpawn);
+            numEnemiesToSpawn++;
+            spawnEnemy(numEnemiesToSpawn);
             Instantiate(chosenPotion, new Vector3(Random.Range(-3, 3), 0, Random.Range(5, 8)), Quaternion.identity);
         }
     }
@@ -70,5 +75,26 @@ public class SpawnManager : MonoBehaviour
                 chosenPotion = purplePotionPrefab;
                 break;
         }
+    }
+
+    void randomEnemy()
+    {
+        int randomEnemy = Random.Range(0, 3);
+        switch (randomEnemy)
+        {
+            case 0:
+                chosenEnemy = shroomArmyPrefab;
+                break;
+            case 1:
+                chosenEnemy = ghoulArmyPrefab;
+                break;
+            case 2:
+                chosenEnemy = skeletonArmyPrefab;
+                break;
+            case 3:
+                chosenEnemy = wolfArmyPrefab;
+                break;
+        }
+
     }
 }

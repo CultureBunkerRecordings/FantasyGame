@@ -52,6 +52,8 @@ public class playerController : MonoBehaviour
     public GameObject[] p1Character;
     public GameObject[] p2Character;
 
+    public bool kicking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -310,7 +312,7 @@ public class playerController : MonoBehaviour
             z = 1;
             isWalkingUp = true;
         }
-        else if (Input.GetKey(downKey))
+        else if (Input.GetKey(downKey) && !kicking)
         {
             z = -1;
             isWalkingUp = true;
