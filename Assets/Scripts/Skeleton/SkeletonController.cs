@@ -4,73 +4,123 @@ using UnityEngine;
 
 public class SkeletonController : MonoBehaviour
 {
+    public ParticleSystem particles;
+    private Animator SkeletonAnim;
     playerController pController;
-    public Transform attackPoint;
-    public Transform stompPoint;
-    public float stompRange;
-    public float attackRange;
+    GameManager gManager;
     public LayerMask enemyLayer;
+    public float attackRadius;
+    public Transform attackPoint;
 
-    Animator skeletonAnim;
+    GameObject spellPrefab;
+    bool hasPotion;
+    bool hasPickedUp;
     // Start is called before the first frame update
     void Start()
     {
-        skeletonAnim = GetComponent<Animator>();
         pController = GameObject.Find("PlayerController").GetComponent<playerController>();
+        SkeletonAnim = GetComponent<Animator>();
+        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //stomp();
+        drinkPotion();
+        blueAttack();
+        //hasBluePotion();
+        walkingAnim();
+        JumpingAnim();
         attack();
-        jump();
-        stomp();
     }
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey))
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0)
         {
-            skeletonAnim.SetTrigger("attack");
-            Collider2D[] enemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            SkeletonAnim.SetTrigger("attack");
 
-            foreach(var enemy in enemys)
+            Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
+
+            foreach (var enemy in enemyHits)
             {
                 Debug.Log(enemy.name + "Hit");
                 enemy.GetComponent<EnemyHealth>().takeDamage();
             }
         }
-    }
 
-    void jump()
-    {
-        if (pController.isJumping)
-        {
-            skeletonAnim.SetBool("jump", true);
-        }
-        else
-        {
-            skeletonAnim.SetBool("jump", false);
-        }
     }
 
     void stomp()
     {
         if (Input.GetKey(pController.downKey) && pController.isJumping)
         {
-            skeletonAnim.SetBool("stomp", true);
-
-            Collider2D[] enemys = Physics2D.OverlapCircleAll(stompPoint.position, stompRange, enemyLayer);
-
-            foreach (var enemy in enemys)
-            {
-                Debug.Log(enemy.name + "Hit");
-                enemy.GetComponent<EnemyHealth>().takeDamage();
-            }
+            SkeletonAnim.SetBool("stomp", true);
         }
         else
         {
-            skeletonAnim.SetBool("stomp", false);
+            SkeletonAnim.SetBool("stomp", false);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+    }
+
+    void walkingAnim()
+    {
+        if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
+        {
+            SkeletonAnim.SetBool("walk", true);
+        }
+        else
+        {
+            SkeletonAnim.SetBool("walk", false);
+        }
+    }
+
+    void JumpingAnim()
+    {
+        if (pController.isJumping)
+        {
+            SkeletonAnim.SetBool("jump", true);
+        }
+        else
+        {
+            SkeletonAnim.SetBool("jump", false);
+        }
+    }
+
+    void drinkPotion()
+    {
+        if (pController.isPickingup)
+        {
+            SkeletonAnim.SetTrigger("drinkPotion");
+        }
+
+    }
+
+
+    void blueAttack()
+    {
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions > 0)
+        {
+            SkeletonAnim.SetTrigger("blueAttack");
+            particles.Play();
+            pController.p1Potions--;
+            gManager.updateP1Potions(pController.p1Potions);
+
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (allEnemies != null)
+            {
+                foreach (var enemy in allEnemies)
+                {
+                    Destroy(enemy);
+                }
+            }
+        }
+
     }
 }

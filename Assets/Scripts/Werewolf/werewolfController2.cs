@@ -1,27 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class GhoulController2 : MonoBehaviour
+public class werewolfController2 : MonoBehaviour
 {
     public ParticleSystem particles;
-    private Animator ghoulAnim2;
+    private Animator wereWolfAnim2;
     playerController pController;
     GameManager gManager;
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
 
-    public GameObject spellPrefab;
+    GameObject spellPrefab;
     bool hasPotion;
     bool hasPickedUp;
-
-    Vector3 spellDirection;
-    bool hasMagic;
-    public float fireSpeed = 100;
     // Start is called before the first frame update
     void Start()
     {
         pController = GameObject.Find("Player2Controller").GetComponent<playerController>();
-        ghoulAnim2 = GetComponent<Animator>();
+        wereWolfAnim2 = GetComponent<Animator>();
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -31,6 +29,7 @@ public class GhoulController2 : MonoBehaviour
         //stomp();
         drinkPotion();
         blueAttack();
+        //hasBluePotion();
         walkingAnim();
         JumpingAnim();
         attack();
@@ -38,9 +37,9 @@ public class GhoulController2 : MonoBehaviour
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey) && pController.p2Potions == 0)
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0)
         {
-            ghoulAnim2.SetTrigger("attack");
+            wereWolfAnim2.SetTrigger("attack");
 
             Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
 
@@ -57,11 +56,11 @@ public class GhoulController2 : MonoBehaviour
     {
         if (Input.GetKey(pController.downKey) && pController.isJumping)
         {
-            ghoulAnim2.SetBool("stomp", true);
+            wereWolfAnim2.SetBool("stomp", true);
         }
         else
         {
-            ghoulAnim2.SetBool("stomp", false);
+            wereWolfAnim2.SetBool("stomp", false);
         }
     }
 
@@ -74,11 +73,11 @@ public class GhoulController2 : MonoBehaviour
     {
         if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
         {
-            ghoulAnim2.SetBool("walk", true);
+            wereWolfAnim2.SetBool("walk", true);
         }
         else
         {
-            ghoulAnim2.SetBool("walk", false);
+            wereWolfAnim2.SetBool("walk", false);
         }
     }
 
@@ -86,11 +85,11 @@ public class GhoulController2 : MonoBehaviour
     {
         if (pController.isJumping)
         {
-            ghoulAnim2.SetBool("jump", true);
+            wereWolfAnim2.SetBool("jump", true);
         }
         else
         {
-            ghoulAnim2.SetBool("jump", false);
+            wereWolfAnim2.SetBool("jump", false);
         }
     }
 
@@ -98,7 +97,7 @@ public class GhoulController2 : MonoBehaviour
     {
         if (pController.isPickingup)
         {
-            ghoulAnim2.SetTrigger("drinkPotion");
+            wereWolfAnim2.SetTrigger("drinkPotion");
         }
 
     }
@@ -106,12 +105,12 @@ public class GhoulController2 : MonoBehaviour
 
     void blueAttack()
     {
-        if (Input.GetKeyDown(pController.attackKey) && pController.p2Potions > 0)
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions > 0)
         {
-            ghoulAnim2.SetTrigger("blueAttack");
+            wereWolfAnim2.SetTrigger("blueAttack");
             particles.Play();
-            pController.p2Potions--;
-            gManager.updateP1Potions(pController.p2Potions);
+            pController.p1Potions--;
+            gManager.updateP1Potions(pController.p1Potions);
 
             GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
             if (allEnemies != null)
@@ -124,17 +123,4 @@ public class GhoulController2 : MonoBehaviour
         }
 
     }
-
-    private void findSpellDirection()
-    {
-        if (pController.facingRight)
-        {
-            spellDirection = Vector2.right;
-        }
-        else
-        {
-            spellDirection = -Vector2.right;
-        }
-    }
-
 }

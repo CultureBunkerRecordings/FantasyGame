@@ -3,22 +3,128 @@
 public class GhoulController : MonoBehaviour
 {
 
-    public Animator ghoulAnim;
+    public ParticleSystem particles;
+    private Animator ghoulAnim;
     playerController pController;
-
     GameManager gManager;
+    public LayerMask enemyLayer;
+    public float attackRadius;
+    public Transform attackPoint;
 
     public GameObject spellPrefab;
-    public float fireSpeed = 1000;
+    bool hasPotion;
+    bool hasPickedUp;
 
-    Vector2 spellDirection;
-    public bool hasMagic = false;
-
+    Vector3 spellDirection;
+    bool hasMagic;
+    public float fireSpeed = 100;
     // Start is called before the first frame update
     void Start()
     {
         pController = GameObject.Find("PlayerController").GetComponent<playerController>();
+        ghoulAnim = GetComponent<Animator>();
         gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //stomp();
+        drinkPotion();
+        blueAttack();
+        //hasBluePotion();
+        walkingAnim();
+        JumpingAnim();
+        attack();
+    }
+
+    void attack()
+    {
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0)
+        {
+            ghoulAnim.SetTrigger("attack");
+
+            Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
+
+            foreach (var enemy in enemyHits)
+            {
+                Debug.Log(enemy.name + "Hit");
+                enemy.GetComponent<EnemyHealth>().takeDamage();
+            }
+        }
+
+    }
+
+    void stomp()
+    {
+        if (Input.GetKey(pController.downKey) && pController.isJumping)
+        {
+            ghoulAnim.SetBool("stomp", true);
+        }
+        else
+        {
+            ghoulAnim.SetBool("stomp", false);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+    }
+
+    void walkingAnim()
+    {
+        if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
+        {
+            ghoulAnim.SetBool("walk", true);
+        }
+        else
+        {
+            ghoulAnim.SetBool("walk", false);
+        }
+    }
+
+    void JumpingAnim()
+    {
+        if (pController.isJumping)
+        {
+            ghoulAnim.SetBool("jump", true);
+        }
+        else
+        {
+            ghoulAnim.SetBool("jump", false);
+        }
+    }
+
+    void drinkPotion()
+    {
+        if (pController.isPickingup)
+        {
+            ghoulAnim.SetTrigger("drinkPotion");
+        }
+
+    }
+
+
+    void blueAttack()
+    {
+        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions > 0)
+        {
+            ghoulAnim.SetTrigger("blueAttack");
+            particles.Play();
+            pController.p1Potions--;
+            gManager.updateP1Potions(pController.p1Potions);
+
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (allEnemies != null)
+            {
+                foreach (var enemy in allEnemies)
+                {
+                    Destroy(enemy);
+                }
+            }
+        }
+
     }
 
     private void findSpellDirection()
@@ -31,59 +137,5 @@ public class GhoulController : MonoBehaviour
         {
             spellDirection = -Vector2.right;
         }
-    } 
-
-    private void fireSpell()
-    {
-        if (Input.GetKey(pController.attackKey) && pController.p1Potions  > 0)
-        {
-            hasMagic = true;
-        }
-        else if (Input.GetKeyUp(pController.attackKey) && pController.p1Potions > 0)
-        {
-            var newSpellPrefab = Instantiate(spellPrefab, transform.position, transform.rotation);
-            newSpellPrefab.GetComponent<Rigidbody2D>().AddForce(spellDirection * fireSpeed);
-            pController.p1Potions--;
-            gManager.updateP1Potions(pController.p1Potions);
-            hasMagic = false;
-        }
-        else
-        {
-            hasMagic = false;
-        }
-        ghoulAnim.SetBool("attack", hasMagic);
-    }
-
-    void wallJump()
-    {
-        if (pController.isWallJumping)
-        {
-            ghoulAnim.SetBool("wallJumping", true);
-        }
-        else
-        {
-            ghoulAnim.SetBool("wallJumping", false);
-        }
-    }
-
-    void jumpAnim()
-    {
-        if (pController.isJumping)
-        {
-            ghoulAnim.SetBool("isJumping", true);
-        }
-        else
-        {
-            ghoulAnim.SetBool("isJumping", false);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        findSpellDirection();
-        fireSpell();
-        wallJump();
-        jumpAnim();
     }
 }

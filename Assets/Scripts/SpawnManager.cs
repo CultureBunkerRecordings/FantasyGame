@@ -5,9 +5,16 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject wolfPrefab;
-    public GameObject spellPrefab;
+    public GameObject redPotionPrefab;
+    public GameObject greenPotionPrefab;
+    public GameObject bluePotionPrefab;
+    public GameObject purplePotionPrefab;
+    GameObject chosenPotion;
+
+
     public int numWolvesToSpawn = 4;
     int numWolves;
+    public enum Potions { redPotion, bluePotion, greenPotion, purplePotion };
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +25,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         nextWave();
+        randomPotion();
     }
 
     void spawnWolves(int numWolves)
@@ -40,7 +48,27 @@ public class SpawnManager : MonoBehaviour
         {
             numWolvesToSpawn++;
             spawnWolves(numWolvesToSpawn);
-            Instantiate(spellPrefab, new Vector3(Random.Range(-3, 3), 0, Random.Range(5, 8)), Quaternion.identity);
+            Instantiate(chosenPotion, new Vector3(Random.Range(-3, 3), 0, Random.Range(5, 8)), Quaternion.identity);
+        }
+    }
+
+    void randomPotion()
+    {
+        int randomPotion = Random.Range(0, 3);
+        switch (randomPotion)
+        {
+            case 0:
+                chosenPotion = redPotionPrefab;
+                break;
+            case 1:
+                chosenPotion = greenPotionPrefab;
+                break;
+            case 2:
+                chosenPotion = bluePotionPrefab;
+                break;
+            case 3:
+                chosenPotion = purplePotionPrefab;
+                break;
         }
     }
 }

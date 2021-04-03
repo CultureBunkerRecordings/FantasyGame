@@ -11,7 +11,6 @@ public class FaunController : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
-    WolfController wolf;
 
     GameObject spellPrefab;
     bool hasPotion;
@@ -112,6 +111,15 @@ public class FaunController : MonoBehaviour
             particles.Play();
             pController.p1Potions--;
             gManager.updateP1Potions(pController.p1Potions);
+            
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if(allEnemies != null)
+            {
+                foreach(var enemy in allEnemies)
+                {
+                    Destroy(enemy);
+                }
+            }
         }
 
     }

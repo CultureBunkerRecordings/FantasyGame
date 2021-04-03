@@ -11,7 +11,6 @@ public class FaunController2 : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
-    WolfController wolf;
 
     GameObject spellPrefab;
     bool hasPotion;
@@ -30,6 +29,7 @@ public class FaunController2 : MonoBehaviour
         //stomp();
         drinkPotion();
         blueAttack();
+        //hasBluePotion();
         walkingAnim();
         JumpingAnim();
         attack();
@@ -99,6 +99,7 @@ public class FaunController2 : MonoBehaviour
         {
             FaunAnim.SetTrigger("drinkPotion");
         }
+
     }
 
 
@@ -109,7 +110,16 @@ public class FaunController2 : MonoBehaviour
             FaunAnim.SetTrigger("blueAttack");
             particles.Play();
             pController.p2Potions--;
-            gManager.updateP2Potions(pController.p2Potions);
+            gManager.updateP1Potions(pController.p2Potions);
+
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (allEnemies != null)
+            {
+                foreach (var enemy in allEnemies)
+                {
+                    Destroy(enemy);
+                }
+            }
         }
 
     }
