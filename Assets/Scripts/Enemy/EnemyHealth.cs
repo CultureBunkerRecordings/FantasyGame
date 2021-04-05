@@ -36,7 +36,6 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
-            Destroy(gameObject);
         }
     }
 }

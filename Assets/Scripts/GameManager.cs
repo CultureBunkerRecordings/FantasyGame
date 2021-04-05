@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int p2Potions;
     public int p1Health;
     public int p2Health;
-
+    public int maxHeath = 12;
     public GameObject[] p1HealthSprites;
     public GameObject[] p1Heads;
 
@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
     {
         if(TitleScreen != null && !gamePaused)
         {
-            updateP1Potions(0);
-            updateP2Potions(0);
+            //updateP1Potions(12);
+            //updateP2Potions(12);
             updateP1Health(p1Health);
             updateP2Health(p2Health);
             TitleScreen.SetActive(false);
@@ -88,25 +88,27 @@ public class GameManager : MonoBehaviour
 
     public void updateP1Health(int healthToAdd)
     {
-        foreach (var health in p1HealthSprites)
+        for (int i = 0; i < p1HealthSprites.Length; i++)
         {
-            health.SetActive(false);
+            p1HealthSprites[i].SetActive(false);
         }
-        if(healthToAdd >= 0)
+
+        for (int i = 0; i < healthToAdd; i++)
         {
-            p1HealthSprites[healthToAdd].SetActive(true);
+            p1HealthSprites[i].SetActive(true);
         }
     }
 
     public void updateP2Health(int healthToAdd)
     {
-        foreach (var health in p2HealthSprites)
+        for (int i = 0; i < p2HealthSprites.Length; i++)
         {
-            health.SetActive(false);
+            p2HealthSprites[i].SetActive(false);
         }
-        if (healthToAdd >= 0)
+
+        for (int i = 0; i < healthToAdd; i++)
         {
-            p2HealthSprites[healthToAdd].SetActive(true);
+            p2HealthSprites[i].SetActive(true);
         }
     }
 

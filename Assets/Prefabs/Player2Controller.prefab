@@ -4968,6 +4968,7 @@ MonoBehaviour:
   - {fileID: 1838780186558924912}
   - {fileID: 6822050837396202239}
   - {fileID: 3115429216376229574}
+  kicking: 0
 --- !u!54 &4477304819238300300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5214,6 +5215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton2
       objectReference: {fileID: 0}
+    - target: {fileID: 51361104927495197, guid: b43c75396ba527c47b0d359a74999f77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 51361104927495198, guid: b43c75396ba527c47b0d359a74999f77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5359,6 +5365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Faun2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877868633128377262, guid: ef151d1b4c9f6994ab0af534bfb012d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef151d1b4c9f6994ab0af534bfb012d9, type: 3}

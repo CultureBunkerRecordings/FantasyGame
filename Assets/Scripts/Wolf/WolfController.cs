@@ -10,7 +10,11 @@ public class WolfController : MonoBehaviour
     public Transform attackPoint;
     public LayerMask playersLayer;
     public float attackRange;
-    public bool attackingPlayer;
+    public bool attackingPlayer = false;
+
+    int p1Health;
+    int p2Health;
+    float attackCoolDown = 1;
 
     GameManager gManager;
 
@@ -28,7 +32,7 @@ public class WolfController : MonoBehaviour
     {
         if (gManager.gamePlaying)
         {
-            attackCheck();
+            attack();
         }
     }
 
@@ -50,10 +54,35 @@ public class WolfController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    void attackCheck()
-    {
-        attackingPlayer = Physics.CheckSphere(attackPoint.position, attackRange, playersLayer);
-    }
 
+    void attack()
+    {
+        if (attackCoolDown <= 0)
+        {
+            Collider[] players =  Physics.OverlapSphere(attackPoint.position, attackRange, playersLayer);
+            foreach (var player in players)
+            {
+                if (player.name == "PlayerController")
+                {
+                    p1Health = --player.GetComponent<playerController>().health1;
+                    gManager.updateP1Health(p1Health);
+                    Debug.Log("hit");
+                }
+                else
+                {
+                    p2Health = --player.GetComponent<playerController>().health2;
+                    gManager.updateP2Health(p2Health);
+                }
+            }
+            attackingPlayer = true;
+            attackCoolDown = 1;
+        }
+        else
+        {
+            attackingPlayer = false;
+        }
+
+        attackCoolDown -= Time.deltaTime;
+    }
 
 }

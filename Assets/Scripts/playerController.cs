@@ -127,7 +127,7 @@ public class playerController : MonoBehaviour
             isPickingup = false;
         }
 
-        if(collision.gameObject.tag == "Enemy")
+        /*if(collision.gameObject.tag == "Enemy")
         {
             if(health1 >= 0 && gameObject.name == "PlayerController") 
             {
@@ -142,7 +142,7 @@ public class playerController : MonoBehaviour
                 gameManager.updateP2Health(health2);
             }
 
-        }
+        }*/
 
     }
 

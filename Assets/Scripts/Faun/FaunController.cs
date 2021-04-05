@@ -42,7 +42,7 @@ public class FaunController : MonoBehaviour
     {
         if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0 && !Input.GetKeyDown(pController.downKey))
         {
-            FaunAnim.SetBool("attack", true);
+             FaunAnim.SetBool("attack", true);
 
             Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
 
@@ -124,7 +124,7 @@ public class FaunController : MonoBehaviour
             {
                 foreach(var enemy in allEnemies)
                 {
-                    Destroy(enemy);
+                    Destroy(enemy.transform.parent.gameObject);
                 }
             }
         }
