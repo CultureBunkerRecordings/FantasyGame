@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject PauseScreen;
     public TextMeshProUGUI p1PotionsText;
     public TextMeshProUGUI p2PotionsText;
+    public TextMeshProUGUI TimerText;
     public bool gamePlaying = false;
     public bool gamePaused = false;
     public int p1Potions;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] p2HealthSprites;
     public GameObject[] p2Heads;
+
+    public float dayTime = 60.0f;
 
     public static GameManager SingletonInstance
     {
@@ -48,6 +51,16 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (gamePlaying)
+        {
+            timer();
+        }
+    }
+
+
     public void playGame()
     {
         if(TitleScreen != null && !gamePaused)
@@ -58,8 +71,22 @@ public class GameManager : MonoBehaviour
             updateP2Health(p2Health);
             TitleScreen.SetActive(false);
         }
-        
+
         gamePlaying = true;
+    }
+
+    public void timer()
+    {
+        dayTime -= Time.deltaTime;
+        if(dayTime >= 0.0f)
+        {
+            float formattedDaytime = (float)Mathf.Round(dayTime * 100) / 100.0f;
+            TimerText.text = formattedDaytime.ToString();
+        }
+        else
+        {
+            TimerText.text = "Game Over";
+        }
     }
 
     public void pauseGame()
@@ -69,10 +96,6 @@ public class GameManager : MonoBehaviour
         PauseScreen.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void updateP1Potions(int potionsToAdd)
     {

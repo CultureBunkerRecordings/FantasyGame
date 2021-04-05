@@ -16,6 +16,10 @@ public class ShroomController : MonoBehaviour
 
     Rigidbody rb;
 
+    int p1Health;
+    int p2Health;
+    float attackCoolDown = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,7 @@ public class ShroomController : MonoBehaviour
         if (gManager.gamePlaying)
         {
             attackCheck();
+            attack();
         }
     }
 
@@ -53,6 +58,36 @@ public class ShroomController : MonoBehaviour
     void attackCheck()
     {
         attackingPlayer = Physics.CheckSphere(attackPoint.position, attackRange, playersLayer);
+    }
+
+    void attack()
+    {
+        if (attackCoolDown <= 0)
+        {
+            Collider[] players = Physics.OverlapSphere(attackPoint.position, attackRange, playersLayer);
+            foreach (var player in players)
+            {
+                if (player.name == "PlayerController")
+                {
+                    p1Health = --player.GetComponent<playerController>().health1;
+                    gManager.updateP1Health(p1Health);
+                    Debug.Log("hit");
+                }
+                else
+                {
+                    p2Health = --player.GetComponent<playerController>().health2;
+                    gManager.updateP2Health(p2Health);
+                }
+            }
+            attackingPlayer = true;
+            attackCoolDown = Random.Range(0.5f, 2);
+        }
+        else
+        {
+            attackingPlayer = false;
+        }
+
+        attackCoolDown -= Time.deltaTime;
     }
 
 }

@@ -75,7 +75,7 @@ public class WolfController : MonoBehaviour
                 }
             }
             attackingPlayer = true;
-            attackCoolDown = 1;
+            attackCoolDown = Random.Range(0.5f, 2);
         }
         else
         {
