@@ -95,7 +95,7 @@ public class werewolfController2 : MonoBehaviour
 
     void drinkPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             wereWolfAnim2.SetTrigger("drinkPotion");
         }

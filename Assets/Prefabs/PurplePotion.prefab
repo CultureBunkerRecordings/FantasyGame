@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 179186752804071126}
   - component: {fileID: -296385624686813158}
   - component: {fileID: 9166182345539957586}
+  - component: {fileID: -1862948636405407333}
   m_Layer: 0
   m_Name: PurplePotion
   m_TagString: Pickups
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-1862948636405407333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31203007585436841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449f186ec8df9fd4cb9b096aad091690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

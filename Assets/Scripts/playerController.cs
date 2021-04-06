@@ -12,7 +12,11 @@ public class playerController : MonoBehaviour
 
     CharacterController controller;
     bool isInDialogue = false;
-    public bool isPickingup = false;
+    public bool isPickingUpRed = false;
+    public bool isPickingUpBlue = false;
+    public bool hasBlue = false;
+    public bool isPickingUpGreen = false;
+    public bool isPickingUpPurple = false;
 
     public float speed = 5;
     public float jumpForce;
@@ -47,6 +51,7 @@ public class playerController : MonoBehaviour
 
     public int health1;
     public int health2;
+    int maxHealth = 12;
     private Rigidbody rb;
 
     public GameObject[] p1Character;
@@ -99,7 +104,11 @@ public class playerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        isPickingup = false;
+        isPickingUpRed = false;
+        isPickingUpBlue = false;
+        isPickingUpGreen = false;
+        isPickingUpPurple = false;
+
         flip();
     }
 
@@ -107,24 +116,74 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pickups")
         {
-            Destroy(collision.gameObject);
+            Debug.Log(collision.gameObject.name);
             if (gameObject.name == "PlayerController")
             {
+                if (collision.gameObject.name == "RedPotion(Clone)")
+                {
+                    if(health1 < maxHealth)
+                    {
+                        health1 = maxHealth;
+                        gameManager.updateP1Health(health1);
+                    }
+                    isPickingUpRed = true;
+                }
+                else if (collision.gameObject.name == "BluePotion(Clone)")
+                {
+                    isPickingUpBlue = true;
+                    hasBlue = true;
+                }
+                else if (collision.gameObject.name == "GreenPotion(Clone)")
+                {
+                    isPickingUpGreen = true;
+                }
+                else if (collision.gameObject.name == "PurplePotion(Clone")
+                {
+                    isPickingUpPurple = true;
+                }
+                else
+                {
+                    isPickingUpRed = false;
+                    isPickingUpBlue = false;
+                    isPickingUpGreen = false;
+                    isPickingUpPurple = false;
+                }
+                Destroy(collision.gameObject);
                 p1Potions = gameManager.p1Potions;
                 p1Potions++;
                 gameManager.updateP1Potions(p1Potions);
             }
             else if (gameObject.name == "Player2Controller")
             {
+                if (collision.gameObject.name == "RedPotion(Clone)")
+                {
+                    isPickingUpRed = true;
+                }
+                else if (collision.gameObject.name == "BluePotion(Clone)")
+                {
+                    isPickingUpBlue = true;
+                    hasBlue = true;
+                }
+                else if (collision.gameObject.name == "GreenPotion(Clone)")
+                {
+                    isPickingUpGreen = true;
+                }
+                else if (collision.gameObject.name == "PurplePotion(Clone)")
+                {
+                    isPickingUpPurple = true;
+                }
+                else
+                {
+                    isPickingUpRed = false;
+                    isPickingUpBlue = false;
+                    isPickingUpGreen = false;
+                    isPickingUpPurple = false;
+                }
+                Destroy(collision.gameObject);
                 p2Potions = gameManager.p2Potions;
                 p2Potions++;
                 gameManager.updateP2Potions(p2Potions);
             }
-            isPickingup = true;
-        }
-        else
-        {
-            isPickingup = false;
         }
 
     }

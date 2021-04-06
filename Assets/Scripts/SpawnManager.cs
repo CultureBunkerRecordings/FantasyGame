@@ -16,6 +16,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject skeletonArmyPrefab;
     GameObject chosenEnemy;
 
+    public GameObject floor;
+
     public int numEnemiesToSpawn = 4;
     int numEnemies;
     

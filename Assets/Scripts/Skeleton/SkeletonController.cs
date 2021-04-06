@@ -27,7 +27,7 @@ public class SkeletonController : MonoBehaviour
     void Update()
     {
         //stomp();
-        drinkPotion();
+        drinkRedPotion();
         blueAttack();
         //hasBluePotion();
         walkingAnim();
@@ -93,9 +93,9 @@ public class SkeletonController : MonoBehaviour
         }
     }
 
-    void drinkPotion()
+    void drinkRedPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             SkeletonAnim.SetTrigger("drinkPotion");
         }

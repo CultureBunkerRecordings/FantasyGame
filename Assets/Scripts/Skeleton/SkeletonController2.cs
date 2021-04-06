@@ -95,7 +95,7 @@ public class SkeletonController2 : MonoBehaviour
 
     void drinkPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             skeletonAnim2.SetTrigger("drinkPotion");
         }

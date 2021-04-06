@@ -96,7 +96,7 @@ public class GhoulController2 : MonoBehaviour
 
     void drinkPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             ghoulAnim2.SetTrigger("drinkPotion");
         }

@@ -98,7 +98,7 @@ public class GhoulController : MonoBehaviour
 
     void drinkPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             ghoulAnim.SetTrigger("drinkPotion");
         }

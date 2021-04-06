@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DrinkPotionFaun
+  m_Name: FaunDrinkPotionGreen
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2451211004315662269, guid: c7237a3a68f439b4db2b6ce84c83841c,
+      value: {fileID: 1450203263488386800, guid: 1f1acee17a9103c46a30b9f2d8f9ed90,
         type: 3}
-    - time: 0.35
-      value: {fileID: 3351784341019427662, guid: c7237a3a68f439b4db2b6ce84c83841c,
+    - time: 0.33333334
+      value: {fileID: 1538521246310986523, guid: 1f1acee17a9103c46a30b9f2d8f9ed90,
         type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
+      value: {fileID: -5242708144358794181, guid: 1f1acee17a9103c46a30b9f2d8f9ed90,
+        type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,9 +47,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2451211004315662269, guid: c7237a3a68f439b4db2b6ce84c83841c, type: 3}
-    - {fileID: 3351784341019427662, guid: c7237a3a68f439b4db2b6ce84c83841c, type: 3}
-    - {fileID: 21300000, guid: 850d44bfe8f520240b00c0f09de96b5b, type: 3}
+    - {fileID: 1450203263488386800, guid: 1f1acee17a9103c46a30b9f2d8f9ed90, type: 3}
+    - {fileID: 1538521246310986523, guid: 1f1acee17a9103c46a30b9f2d8f9ed90, type: 3}
+    - {fileID: -5242708144358794181, guid: 1f1acee17a9103c46a30b9f2d8f9ed90, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

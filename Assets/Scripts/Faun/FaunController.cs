@@ -28,7 +28,7 @@ public class FaunController : MonoBehaviour
     void Update()
     {
         //stomp();
-        drinkPotion();
+        drinkPotions();
         blueAttack();
         //hasBluePotion();
         kick();
@@ -40,7 +40,7 @@ public class FaunController : MonoBehaviour
 
     void attack()
     {
-        if (Input.GetKeyDown(pController.attackKey) && pController.p1Potions == 0 && !Input.GetKeyDown(pController.downKey))
+        if (Input.GetKeyDown(pController.attackKey) && !Input.GetKeyDown(pController.downKey) && !pController.hasBlue)
         {
              FaunAnim.SetBool("attack", true);
 
@@ -56,7 +56,6 @@ public class FaunController : MonoBehaviour
         {
             FaunAnim.SetBool("attack", false);
         }
-
     }
 
     void stomp()
@@ -100,11 +99,23 @@ public class FaunController : MonoBehaviour
         }
     }
     
-    void drinkPotion()
+    void drinkPotions()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
-            FaunAnim.SetTrigger("drinkPotion");
+            FaunAnim.SetTrigger("drinkPotionRed");
+        }
+        else if (pController.isPickingUpBlue)
+        {
+            FaunAnim.SetTrigger("drinkPotionBlue");
+        }
+        else if (pController.isPickingUpGreen)
+        {
+            FaunAnim.SetTrigger("drinkPotionGreen");
+        }
+        else if (pController.isPickingUpPurple)
+        {
+            FaunAnim.SetTrigger("drinkPotionPurple");
         }
 
     }
@@ -112,9 +123,9 @@ public class FaunController : MonoBehaviour
 
     void blueAttack()
     {
-        if(Input.GetKeyDown(pController.attackKey) && pController.p1Potions > 0)
+        if(Input.GetKeyDown(pController.attackKey) && pController.hasBlue)
         {
-            FaunAnim.SetTrigger("blueAttack");
+            FaunAnim.SetBool("blueAttack", true);
             particles.Play();
             pController.p1Potions--;
             gManager.updateP1Potions(pController.p1Potions);
@@ -127,6 +138,11 @@ public class FaunController : MonoBehaviour
                     Destroy(enemy.transform.parent.gameObject);
                 }
             }
+            pController.hasBlue = false;
+        }
+        else
+        {
+            FaunAnim.SetBool("blueAttack", false);
         }
 
     }
@@ -160,5 +176,4 @@ public class FaunController : MonoBehaviour
         }
 
     }
-
 }

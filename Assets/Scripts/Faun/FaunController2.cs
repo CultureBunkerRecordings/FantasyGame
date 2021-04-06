@@ -95,7 +95,7 @@ public class FaunController2 : MonoBehaviour
 
     void drinkPotion()
     {
-        if (pController.isPickingup)
+        if (pController.isPickingUpRed)
         {
             FaunAnim.SetTrigger("drinkPotion");
         }
