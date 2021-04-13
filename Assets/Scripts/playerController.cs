@@ -54,9 +54,6 @@ public class playerController : MonoBehaviour
     int maxHealth = 12;
     private Rigidbody rb;
 
-    public GameObject[] p1Character;
-    public GameObject[] p2Character;
-
     public bool kicking = false;
 
     // Start is called before the first frame update
@@ -240,94 +237,6 @@ public class playerController : MonoBehaviour
         {
             isJumping = false;
         }
-    }
-
-    public void P1FaunSelect()
-    {
-        foreach(var c in p1Character)
-        {
-            c.SetActive(false);
-        }
-
-        p1Character[0].SetActive(true);
-        gameManager.updatePlayer1Character(0);
-    }
-
-    public void P1GhoulSelect()
-    {
-        foreach (var c in p1Character)
-        {
-            c.SetActive(false);
-        }
-
-        p1Character[1].SetActive(true);
-        gameManager.updatePlayer1Character(1);
-    }
-
-    public void P1SkeletonSelect()
-    {
-        foreach (var c in p1Character)
-        {
-            c.SetActive(false);
-        }
-
-        p1Character[2].SetActive(true);
-        gameManager.updatePlayer1Character(2);
-    }
-
-    public void P1WerewolfSelect()
-    {
-        foreach (var c in p1Character)
-        {
-            c.SetActive(false);
-        }
-
-        p1Character[3].SetActive(true);
-        gameManager.updatePlayer1Character(3);
-    }
-
-    public void P2FaunSelect()
-    {
-        foreach (var c in p2Character)
-        {
-            c.SetActive(false);
-        }
-
-        p2Character[0].SetActive(true);
-        gameManager.updatePlayer2Character(0);
-    }
-
-    public void P2GhoulSelect()
-    {
-        foreach (var c in p2Character)
-        {
-            c.SetActive(false);
-        }
-
-        p2Character[1].SetActive(true);
-        gameManager.updatePlayer2Character(1);
-    }
-
-    public void P2SkeletonSelect()
-    {
-        foreach (var c in p2Character)
-        {
-            c.SetActive(false);
-        }
-
-        p2Character[2].SetActive(true);
-        gameManager.updatePlayer2Character(2);
-    }
-
-    public void P2WerewolfSelect()
-    {
-        foreach (var c in p2Character)
-        {
-            c.SetActive(false);
-        }
-
-        p2Character[3].SetActive(true);
-        gameManager.updatePlayer2Character(3);
     }
 
     private void movement()

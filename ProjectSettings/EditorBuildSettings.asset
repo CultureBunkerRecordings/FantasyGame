@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroScene.unity
     guid: 4505d5e65f6bda14dab3e2dd82e06179
   - enabled: 1
-    path: Assets/Scenes/Scene1.unity
+    path: Assets/Scenes/DayTime.unity
     guid: c9340e427b4a94b4ea7e30608eda043d
+  - enabled: 1
+    path: Assets/Scenes/NightTime.unity
+    guid: 059deca5ba86f314082535e77aa68933
   m_configObjects: {}

@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject greenPotionPrefab;
     public GameObject bluePotionPrefab;
     public GameObject purplePotionPrefab;
+    public GameObject faunArmyPrefab;
     GameObject chosenPotion;
 
     public GameObject wolfArmyPrefab;
@@ -61,7 +62,7 @@ public class SpawnManager : MonoBehaviour
 
     void randomPotion()
     {
-        int randomPotion = Random.Range(0, 3);
+        int randomPotion = Random.Range(0, 4);
         switch (randomPotion)
         {
             case 0:
@@ -81,7 +82,7 @@ public class SpawnManager : MonoBehaviour
 
     void randomEnemy()
     {
-        int randomEnemy = Random.Range(0, 3);
+        int randomEnemy = Random.Range(0, 5);
         switch (randomEnemy)
         {
             case 0:
@@ -95,6 +96,9 @@ public class SpawnManager : MonoBehaviour
                 break;
             case 3:
                 chosenEnemy = wolfArmyPrefab;
+                break;
+            case 4:
+                chosenEnemy = faunArmyPrefab;
                 break;
         }
 

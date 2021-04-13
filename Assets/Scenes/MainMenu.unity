@@ -308,7 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998c4351f8ffe8e498d9410a0f9e7174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNum: 0
 --- !u!4 &199868043
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +646,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 199868042}
-        m_MethodName: SwitchScene
+        m_MethodName: nextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -727,16 +726,19 @@ MonoBehaviour:
   PauseScreen: {fileID: 0}
   p1PotionsText: {fileID: 0}
   p2PotionsText: {fileID: 0}
+  TimerText: {fileID: 0}
   gamePlaying: 0
   gamePaused: 0
   p1Potions: 0
   p2Potions: 0
   p1Health: 0
   p2Health: 0
+  maxHeath: 12
   p1HealthSprites: []
   p1Heads: []
   p2HealthSprites: []
   p2Heads: []
+  dayTime: 60
 --- !u!4 &719741845
 Transform:
   m_ObjectHideFlags: 0

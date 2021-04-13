@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Conversation");
         inDialogue = false;
-        sSWitcher.SwitchScene();
+        sSWitcher.nextScene();
     }
 
     public void isInDialogue()

@@ -16,73 +16,39 @@ public class WolfController : MonoBehaviour
     int p2Health;
     float attackCoolDown = 1;
 
-    GameManager gManager;
-
     Rigidbody rb;
+
+    public Enemy wolf;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        gManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        wolf = new Enemy();
+        wolf.transform = transform;
+        wolf.speed = speed;
+        wolf.isMoving = isMoving;
+        wolf.attackPoint = attackPoint;
+        wolf.playersLayer = playersLayer;
+        wolf.attackRange = attackRange;
+        wolf.attackingPlayer = attackingPlayer;
+        wolf.rb = GetComponent<Rigidbody>();
+        wolf.attackCoolDown = attackCoolDown;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gManager.gamePlaying)
+        if (GameManager.SingletonInstance.gamePlaying)
         {
-            attack();
+            wolf.attack();
         }
     }
 
     private void LateUpdate()
     {
-        flip();
-    }
-
-
-    void flip()
-    {
-        Vector2 scale = transform.localScale;
-
-        if(facingRight && scale.x > 0 || !facingRight && scale.x < 0)
-        {
-            scale.x *= -1; 
-        }
-
-        transform.localScale = scale;
-    }
-
-
-    void attack()
-    {
-        if (attackCoolDown <= 0)
-        {
-            Collider[] players =  Physics.OverlapSphere(attackPoint.position, attackRange, playersLayer);
-            foreach (var player in players)
-            {
-                if (player.name == "PlayerController")
-                {
-                    p1Health = --player.GetComponent<playerController>().health1;
-                    gManager.updateP1Health(p1Health);
-                    Debug.Log("hit");
-                }
-                else
-                {
-                    p2Health = --player.GetComponent<playerController>().health2;
-                    gManager.updateP2Health(p2Health);
-                }
-            }
-            attackingPlayer = true;
-            attackCoolDown = Random.Range(0.5f, 2);
-        }
-        else
-        {
-            attackingPlayer = false;
-        }
-
-        attackCoolDown -= Time.deltaTime;
+        wolf.facingRight = facingRight;
+        wolf.flip();
     }
 
 }

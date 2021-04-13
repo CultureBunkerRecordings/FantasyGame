@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -26,7 +27,11 @@ public class GameManager : MonoBehaviour
     public GameObject[] p2HealthSprites;
     public GameObject[] p2Heads;
 
-    public float dayTime = 60.0f;
+    public float dayTime = 6;
+    public float nightTime = 0;
+
+    SceneSwitcher switcher;
+    bool hasSwitched = false;
 
     public static GameManager SingletonInstance
     {
@@ -48,7 +53,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        switcher = GameObject.Find("SceneSwitcher").GetComponent<SceneSwitcher>();
     }
 
     // Update is called once per frame
@@ -77,16 +82,19 @@ public class GameManager : MonoBehaviour
 
     public void timer()
     {
-        dayTime -= Time.deltaTime;
-        if(dayTime >= 0.0f)
+        var formattedTime = DateTime.Now.ToString("HH:mm");
+        TimerText.text = formattedTime;
+        float hours = Mathf.Round(float.Parse(formattedTime.Substring(0, 2)));
+        /*if (hours >= nightTime)
         {
-            float formattedDaytime = (float)Mathf.Round(dayTime * 100) / 100.0f;
-            TimerText.text = formattedDaytime.ToString();
+            switcher.loadScenNum(3);
+            hasSwitched = true;
         }
         else
         {
-            TimerText.text = "Game Over";
-        }
+            hasSwitched = false;
+        }*/
+
     }
 
     public void pauseGame()

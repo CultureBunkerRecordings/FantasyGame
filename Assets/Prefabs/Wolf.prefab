@@ -41,11 +41,10 @@ GameObject:
   - component: {fileID: 3394815087280373863}
   - component: {fileID: 3394815087280373860}
   - component: {fileID: 3394815087280373861}
-  - component: {fileID: 2726172497155721233}
-  - component: {fileID: 2726172497155721228}
-  - component: {fileID: 1694185741}
   - component: {fileID: 753067280}
   - component: {fileID: 1174756153880134603}
+  - component: {fileID: 2726172497155721233}
+  - component: {fileID: 1694185741}
   m_Layer: 9
   m_Name: Wolf
   m_TagString: Untagged
@@ -138,52 +137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2726172497155721233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394815087280373858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a1d734091a91b439edebef428b46ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  facingRight: 0
-  isMoving: 0
-  attackPoint: {fileID: 738589070}
-  playersLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  attackRange: 0.1
-  attackingPlayer: 0
---- !u!114 &2726172497155721228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394815087280373858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127976c6887dcf04db439de51a0f03c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 4
---- !u!114 &1694185741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394815087280373858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cdaa16cab03db43a41509b119672b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &753067280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,3 +166,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2726172497155721233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394815087280373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a1d734091a91b439edebef428b46ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  facingRight: 0
+  isMoving: 0
+  attackPoint: {fileID: 738589070}
+  playersLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  attackRange: 0.1
+  attackingPlayer: 0
+  wolf: {fileID: 11400000, guid: c1de655f4a65540418345d53d9a03c31, type: 2}
+--- !u!114 &1694185741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394815087280373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cdaa16cab03db43a41509b119672b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

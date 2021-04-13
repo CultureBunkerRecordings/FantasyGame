@@ -120,6 +120,6 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   m_SettingNames:
-  - wolf
+  - humanoid
   - shroom
   - anotherShroom
