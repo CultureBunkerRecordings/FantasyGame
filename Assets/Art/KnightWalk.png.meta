@@ -14,6 +14,21 @@ TextureImporter:
   - first:
       213: 7439635253617921395
     second: KnightWalk_3
+  - first:
+      213: 6796131890808732515
+    second: KnightWalk_0
+  - first:
+      213: -4490983729504971945
+    second: KnightWalk_1
+  - first:
+      213: -4726794996947742633
+    second: KnightWalk_2
+  - first:
+      213: -3668265779695201693
+    second: KnightWalk_3
+  - first:
+      213: -6497393852434509403
+    second: KnightWalk_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +118,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -113,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6bd1af00fc17a90800000000000000
-      internalID: -7317840316397144351
+      spriteID: 36bbb5e72f5b05e50800000000000000
+      internalID: 6796131890808732515
       vertices: []
       indices: 
       edges: []
@@ -124,7 +139,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -134,8 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556dddb48124c8b00800000000000000
-      internalID: 832112703276176981
+      spriteID: 7531cce9712dca1c0800000000000000
+      internalID: -4490983729504971945
       vertices: []
       indices: 
       edges: []
@@ -145,7 +160,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -155,8 +170,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11ca6dea642040900800000000000000
-      internalID: 649646748852464657
+      spriteID: 75016d07efc076eb0800000000000000
+      internalID: -4726794996947742633
       vertices: []
       indices: 
       edges: []
@@ -166,6 +181,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362db8b65b3b71dc0800000000000000
+      internalID: -3668265779695201693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightWalk_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -176,8 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37d8e56a8d4ee3760800000000000000
-      internalID: 7439635253617921395
+      spriteID: 5a195d347be94d5a0800000000000000
+      internalID: -6497393852434509403
       vertices: []
       indices: 
       edges: []

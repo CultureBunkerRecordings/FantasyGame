@@ -12595,12 +12595,12 @@ MonoBehaviour:
   knight: {fileID: 11400000, guid: 9c0a46049d725b24099f509c42627642, type: 2}
   knightAnim: {fileID: 2068419372}
   particles: {fileID: 7279793665893679119}
-  pController: {fileID: 7970759945062527150}
+  pController: {fileID: 5465984293924715733}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
   attackRadius: 0.4
-  attackPoint: {fileID: 7279793666255097145}
+  attackPoint: {fileID: 8641231093099708930}
   spellPrefab: {fileID: 0}
   hasPotion: 0
   hasPickedUp: 0
