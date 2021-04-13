@@ -8,9 +8,8 @@ TagManager:
   - Pickups
   - player1Controller
   - player2Controller
-  - TurnPointLeft
-  - TurnPointRight
   - Enemy
+  - wayPoints
   layers:
   - Default
   - TransparentFX
