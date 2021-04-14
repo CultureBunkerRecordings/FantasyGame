@@ -67,9 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2573be5cc9d0fdc45a07c7ef48d7fcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
+  leftWayPoints:
   - {fileID: 0}
   - {fileID: 0}
+  rightWayPoints:
   - {fileID: 0}
   - {fileID: 0}
   isMoving: 0
@@ -80,6 +81,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5757602657594942076}
     m_Modifications:
+    - target: {fileID: 3559792148632278922, guid: e75172a1d0314f44cbbf9ef71b794fdb,
+        type: 3}
+      propertyPath: jumpPower
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3559792148632278923, guid: e75172a1d0314f44cbbf9ef71b794fdb,
         type: 3}
       propertyPath: m_LocalPosition.x

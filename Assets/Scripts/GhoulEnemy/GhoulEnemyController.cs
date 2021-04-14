@@ -12,6 +12,11 @@ public class GhoulEnemyController : MonoBehaviour
     public LayerMask playersLayer;
     public float attackRange;
     public bool attackingPlayer = false;
+    
+    public GameObject spellPrefab;
+    public float spellForce = 100;
+    float spellTimer;
+    float spellTime = 2;
 
     int p1Health;
     int p2Health;
@@ -35,7 +40,6 @@ public class GhoulEnemyController : MonoBehaviour
         ghoulEnemy.attackingPlayer = attackingPlayer;
         ghoulEnemy.rb = GetComponent<Rigidbody>();
         ghoulEnemy.attackCoolDown = attackCoolDown;
-
     }
 
     // Update is called once per frame
@@ -44,11 +48,25 @@ public class GhoulEnemyController : MonoBehaviour
         if (GameManager.SingletonInstance.gamePlaying)
         {
             ghoulEnemy.attack();
+            blueSpell();
         }
     }
 
     private void LateUpdate()
     {
         ghoulEnemy.flip();
+    }
+
+    public void blueSpell()
+    {
+        if(spellTimer > spellTime)
+        {
+            GameObject newSpell = Instantiate(spellPrefab, attackPoint.position, Quaternion.identity);
+            Rigidbody newSpellRB = newSpell.GetComponent<Rigidbody>();
+            newSpellRB.AddForce(spellForce * Vector3.right, ForceMode.Impulse);
+            spellTimer = 0;
+        }
+        spellTimer += Time.deltaTime;
+        
     }
 }

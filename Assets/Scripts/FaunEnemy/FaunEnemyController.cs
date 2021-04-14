@@ -18,12 +18,18 @@ public class FaunEnemyController : MonoBehaviour
     float attackCoolDown = 1;
 
     Rigidbody rb;
+    
+    public float jumpPower;
+    float lastJumpTime = 0;
+    float jumpTimer = 2.0f;
+
 
     public Enemy faunEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         faunEnemy = new Enemy();
         faunEnemy.transform = transform;
         faunEnemy.speed = speed;
@@ -33,9 +39,8 @@ public class FaunEnemyController : MonoBehaviour
         faunEnemy.playersLayer = playersLayer;
         faunEnemy.attackRange = attackRange;
         faunEnemy.attackingPlayer = attackingPlayer;
-        faunEnemy.rb = GetComponent<Rigidbody>();
+        faunEnemy.rb = rb;
         faunEnemy.attackCoolDown = attackCoolDown;
-
     }
 
     // Update is called once per frame
@@ -44,12 +49,25 @@ public class FaunEnemyController : MonoBehaviour
         if (GameManager.SingletonInstance.gamePlaying)
         {
             faunEnemy.attack();
+            jump();
         }
     }
 
     private void LateUpdate()
     {
         faunEnemy.flip();
+    }
+
+    void jump()
+    {
+
+        if (lastJumpTime > jumpTimer && isMoving)
+        {
+            rb.AddForce(jumpPower * Vector3.up);
+            lastJumpTime = 0;
+        }
+        lastJumpTime += Time.deltaTime;
+
     }
 
 }

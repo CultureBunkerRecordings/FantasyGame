@@ -7,7 +7,10 @@ public class FaunEnemyNavMeshController : MonoBehaviour
 {
     GameObject player1;
     GameObject player2;
-    public GameObject[] waypoints;
+    public GameObject[] leftWayPoints;
+    public GameObject[] rightWayPoints;
+    List<GameObject> wayPoints;
+
 
     FaunEnemyController fController;
     public bool isMoving;
@@ -20,16 +23,21 @@ public class FaunEnemyNavMeshController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        wayPoints = new List<GameObject>();
+        leftWayPoints = GameObject.FindGameObjectsWithTag("leftWayPoints");
+        rightWayPoints = GameObject.FindGameObjectsWithTag("rightWayPoints");
+        wayPoints.AddRange(leftWayPoints);
+        wayPoints.AddRange(rightWayPoints);
         fController = GetComponentInChildren<FaunEnemyController>();
         nav = GetComponent<NavMeshAgent>();
         player1 = GameObject.Find("PlayerController");
         player2 = GameObject.Find("Player2Controller");
-        index = Random.Range(0, waypoints.Length);
-        waypoints = GameObject.FindGameObjectsWithTag("wayPoints");
+        index = Random.Range(0, wayPoints.Count);
+        
 
         InvokeRepeating("ticks", 0, 0.5f);
 
-        if(waypoints != null)
+        if(wayPoints != null)
         {
             InvokeRepeating("patrol", Random.Range(0, patrolTime), patrolTime);
         }
@@ -49,16 +57,16 @@ public class FaunEnemyNavMeshController : MonoBehaviour
 
         if (nav.velocity.magnitude > 0)
         {
-            isMoving = true;
+            fController.isMoving = true;
         }
         else
         {
-            isMoving = false;
+            fController.isMoving = false;
         }
     }
     void patrol()
     {
-        index = index == waypoints.Length - 1 ? 0 : index + 1;
+        index = index == wayPoints.Count - 1 ? 0 : index + 1;
     }
 
     void ticks()
@@ -69,7 +77,7 @@ public class FaunEnemyNavMeshController : MonoBehaviour
         }
         else
         {
-            nav.SetDestination(waypoints[index].transform.position);
+            nav.SetDestination(wayPoints[index].transform.position);
         }
     }
 }

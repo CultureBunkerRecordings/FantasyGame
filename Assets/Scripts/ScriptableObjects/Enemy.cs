@@ -17,7 +17,8 @@ public class Enemy : ScriptableObject
     
     int p1Health;
     int p2Health;
-    
+
+    public float jumpPower;
 
     public Rigidbody rb;
 
@@ -72,6 +73,8 @@ public class Enemy : ScriptableObject
 
     }
 
-        
+    
+
+
 
 }

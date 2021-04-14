@@ -68,6 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
+  patrolTime: 2
+  aggroRange: 4
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &7554114571615673890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +134,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040033713205393001, guid: a4a0bd68e7553954c876f93fe814f6ea,
+        type: 3}
+      propertyPath: spellPrefab
+      value: 
+      objectReference: {fileID: 5291437535936661157, guid: 2bcce015059ab9c45b92d66fa1b53c96,
+        type: 3}
+    - target: {fileID: 5040033713205393001, guid: a4a0bd68e7553954c876f93fe814f6ea,
+        type: 3}
+      propertyPath: spellForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5040033713205393014, guid: a4a0bd68e7553954c876f93fe814f6ea,
         type: 3}

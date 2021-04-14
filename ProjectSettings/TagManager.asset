@@ -10,6 +10,8 @@ TagManager:
   - player2Controller
   - Enemy
   - wayPoints
+  - leftWayPoints
+  - rightWayPoints
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,11 @@ public class GhoulEnemyNavMeshController : MonoBehaviour
     GhoulEnemyController gController;
     public bool isMoving;
 
+    int index;
+    public float patrolTime = 2;
+    public float aggroRange;
+    public GameObject[] waypoints;
+
     NavMeshAgent nav;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +23,16 @@ public class GhoulEnemyNavMeshController : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         player1 = GameObject.Find("PlayerController");
         player2 = GameObject.Find("Player2Controller");
+
+        index = Random.Range(0, waypoints.Length);
+        waypoints = GameObject.FindGameObjectsWithTag("leftWayPoints");
+
+        InvokeRepeating("ticks", 0, 0.5f);
+
+        if (waypoints != null)
+        {
+            InvokeRepeating("patrol", Random.Range(0, patrolTime), patrolTime);
+        }
     }
 
     // Update is called once per frame
@@ -25,9 +40,6 @@ public class GhoulEnemyNavMeshController : MonoBehaviour
     {
         if (GameManager.SingletonInstance.gamePlaying)
         {
-
-            nav.SetDestination(player1.transform.position);
-
             if (nav.pathEndPosition.x < nav.transform.position.x)
             {
                 gController.ghoulEnemy.facingRight = true;
@@ -45,6 +57,25 @@ public class GhoulEnemyNavMeshController : MonoBehaviour
             {
                 isMoving = false;
             }
+        }
+    }
+
+    void patrol()
+    {
+        index = index == waypoints.Length - 1 ? 0 : index + 1;
+    }
+
+    void ticks()
+    {
+        if (player1 != null && Vector3.Distance(transform.position, player1.transform.position) < aggroRange)
+        {
+            Vector3 target = new Vector3(transform.position.x, transform.position.y, player1.transform.position.z);
+
+            nav.SetDestination(target);
+        }
+        else
+        {
+            nav.SetDestination(waypoints[index].transform.position);
         }
     }
 }

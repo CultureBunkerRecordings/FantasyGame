@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour
     DialogueManager dManager = default;
     DialogueTrigger dTrigger;
 
-    CharacterController controller;
     bool isInDialogue = false;
     public bool isPickingUpRed = false;
     public bool isPickingUpBlue = false;
