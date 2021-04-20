@@ -12,6 +12,7 @@ TagManager:
   - wayPoints
   - leftWayPoints
   - rightWayPoints
+  - Weapons
   layers:
   - Default
   - TransparentFX

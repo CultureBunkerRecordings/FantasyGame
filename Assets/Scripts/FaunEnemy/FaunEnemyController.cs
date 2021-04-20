@@ -51,6 +51,7 @@ public class FaunEnemyController : MonoBehaviour
         {
             faunEnemy.attack();
             jump();
+            attackAnimation();
         }
     }
 
@@ -75,6 +76,18 @@ public class FaunEnemyController : MonoBehaviour
         }
         lastJumpTime += Time.deltaTime;
 
+    }
+
+    void attackAnimation()
+    {
+        if (faunEnemy.attackingPlayer)
+        {
+            faunAnim.SetBool("attack", true);
+        }
+        else
+        {
+            faunAnim.SetBool("attack", false);
+        }
     }
 
 }

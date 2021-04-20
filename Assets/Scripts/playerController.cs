@@ -17,6 +17,9 @@ public class playerController : MonoBehaviour
     public bool isPickingUpGreen = false;
     public bool isPickingUpPurple = false;
 
+    public bool hasDaggers = false;
+    public bool hasSword = false;
+
     public float speed = 5;
     public float jumpForce;
 
@@ -176,6 +179,52 @@ public class playerController : MonoBehaviour
                 p2Potions++;
                 gameManager.updateP2Potions(p2Potions);
             }
+        }
+
+        if(collision.gameObject.tag == "Weapons")
+        {
+           if (gameObject.name == "PlayerController")
+            {
+                if(collision.gameObject.name == "Daggers(Clone)")
+                {
+                    hasDaggers = true;
+                    GameManager.SingletonInstance.updatePlayer1Weapon(0);
+                }
+                else if (collision.gameObject.name == "Sword(Clone)")
+                {
+                    hasSword = true;
+                    GameManager.SingletonInstance.updatePlayer1Weapon(1);
+                }
+                else
+                {
+                    hasDaggers = false;
+                    hasSword = false;
+                }
+                Destroy(collision.gameObject);
+            }
+            else if (gameObject.name == "Player2Controller")
+            {
+                if (collision.gameObject.name == "Daggers(Clone)")
+                {
+                    hasDaggers = true;
+                    GameManager.SingletonInstance.updatePlayer2Weapon(0);
+                }
+                else if (collision.gameObject.name == "Sword(Clone)")
+                {
+                    hasSword = true;
+                    GameManager.SingletonInstance.updatePlayer2Weapon(1);
+                }
+                else
+                {
+                    hasDaggers = false;
+                    hasSword = false;
+                }
+                Destroy(collision.gameObject);
+                GameManager.SingletonInstance.hasDagger = hasDaggers;
+                GameManager.SingletonInstance.hasSword = hasSword;
+            }
+
+
         }
 
     }

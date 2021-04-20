@@ -50,17 +50,19 @@ public class Enemy : ScriptableObject
                 {
                     if (player.name == "PlayerController")
                     {
+                        attackingPlayer = true;
                         p1Health = --player.GetComponent<playerController>().health1;
                         GameManager.SingletonInstance.updateP1Health(p1Health);
                         Debug.Log("hit");
                     }
                     else if (player.name == "Player2Controller")
                     {
+                        attackingPlayer = true;
                         p2Health = --player.GetComponent<playerController>().health2;
                         GameManager.SingletonInstance.updateP2Health(p2Health);
                     }
                 }
-                attackingPlayer = true;
+                
                 attackCoolDown = Random.Range(0.5f, 2);
             }
             else

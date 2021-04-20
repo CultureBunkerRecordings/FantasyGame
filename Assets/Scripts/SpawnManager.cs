@@ -17,6 +17,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject skeletonArmyPrefab;
     GameObject chosenEnemy;
 
+    public GameObject daggers;
+    public GameObject sword;
+    GameObject chosenWeapon;
+
     public GameObject floor;
 
     public int numEnemiesToSpawn = 4;
@@ -33,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     {
         randomPotion();
         randomEnemy();
+        randomWeapon();
         nextWave();
     }
 
@@ -57,6 +62,7 @@ public class SpawnManager : MonoBehaviour
             numEnemiesToSpawn++;
             spawnEnemy(numEnemiesToSpawn);
             Instantiate(chosenPotion, new Vector3(Random.Range(-3, 3), 0, Random.Range(5, 8)), Quaternion.identity);
+            Instantiate(chosenWeapon, new Vector3(Random.Range(-3, 3), 0, Random.Range(5, 8)), Quaternion.identity);
         }
     }
 
@@ -76,6 +82,21 @@ public class SpawnManager : MonoBehaviour
                 break;
             case 3:
                 chosenPotion = purplePotionPrefab;
+                break;
+        }
+    }
+
+    void randomWeapon()
+    {
+        int randomWeapon = Random.Range(0, 2);
+        switch (randomWeapon)
+        {
+            case 0:
+                chosenWeapon = daggers;
+                break;
+
+            case 1:
+                chosenWeapon = sword;
                 break;
         }
     }

@@ -27,11 +27,18 @@ public class GameManager : MonoBehaviour
     public GameObject[] p2HealthSprites;
     public GameObject[] p2Heads;
 
+    public GameObject[] p1Weapons;
+    public GameObject[] p2Weapons;
+
     public float dayTime = 6;
     public float nightTime = 0;
 
     SceneSwitcher switcher;
     bool hasSwitched = false;
+
+    public bool hasDagger = false;
+    public bool hasSword = false;
+
 
     public static GameManager SingletonInstance
     {
@@ -161,6 +168,28 @@ public class GameManager : MonoBehaviour
         }
 
         p2Heads[headNum].SetActive(true);
+    }
+
+    public void updatePlayer1Weapon(int weaponNum)
+    {
+        foreach(var weapon in p1Weapons)
+        {
+            weapon.SetActive(false);
+        }
+
+        p1Weapons[weaponNum].SetActive(true);
+        
+    }
+
+    public void updatePlayer2Weapon(int weaponNum)
+    {
+        foreach (var weapon in p2Weapons)
+        {
+            weapon.SetActive(false);
+        }
+
+        p2Weapons[weaponNum].SetActive(true);
+
     }
 
     public void quitGame()
