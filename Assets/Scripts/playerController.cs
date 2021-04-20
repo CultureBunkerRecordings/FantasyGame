@@ -54,6 +54,7 @@ public class playerController : MonoBehaviour
     private Rigidbody rb;
 
     public bool kicking = false;
+    public bool uppercut = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,11 +101,6 @@ public class playerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        isPickingUpRed = false;
-        isPickingUpBlue = false;
-        isPickingUpGreen = false;
-        isPickingUpPurple = false;
-
         flip();
     }
 
@@ -257,7 +253,7 @@ public class playerController : MonoBehaviour
         }
 
 
-        if (Input.GetKey(upKey))
+        if (Input.GetKey(upKey) && !uppercut)
         {
             z = 1;
             isWalkingUp = true;

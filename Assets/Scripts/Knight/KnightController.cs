@@ -13,7 +13,6 @@ public class KnightController : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRadius;
     public Transform attackPoint;
-    public GameObject spellPrefab;
     public bool hasPotion;
     public bool hasPickedUp;
     public bool kicking;
@@ -40,5 +39,6 @@ public class KnightController : MonoBehaviour
         knight.walkingAnim();
         knight.JumpingAnim();
         knight.attack();
+        knight.UpperCut();
     }
 }

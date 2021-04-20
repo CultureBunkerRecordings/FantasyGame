@@ -38,16 +38,21 @@ public class Characters : ScriptableObject
         }
     }
 
-    public void stomp()
+    public void UpperCut()
     {
-        if (Input.GetKey(pController.downKey) && pController.isJumping)
+        if (Input.GetKey(pController.attackKey))
         {
-            anim.SetBool("stomp", true);
+            if (Input.GetKeyDown(pController.upKey))
+            {
+                anim.SetTrigger("uppercut");
+                pController.uppercut = true;
+            }   
         }
         else
         {
-            anim.SetBool("stomp", false);
+            pController.uppercut = false;
         }
+
     }
 
     private void OnDrawGizmosSelected()

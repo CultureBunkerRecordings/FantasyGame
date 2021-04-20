@@ -22,13 +22,14 @@ public class FaunEnemyController : MonoBehaviour
     public float jumpPower;
     float lastJumpTime = 0;
     float jumpTimer = 2.0f;
-
+    public Animator faunAnim;
 
     public Enemy faunEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
+        faunAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         faunEnemy = new Enemy();
         faunEnemy.transform = transform;
@@ -64,7 +65,13 @@ public class FaunEnemyController : MonoBehaviour
         if (lastJumpTime > jumpTimer && isMoving)
         {
             rb.AddForce(jumpPower * Vector3.up);
+            faunAnim.SetBool("jump", true);
             lastJumpTime = 0;
+        }
+        else
+        {
+            faunAnim.SetBool("jump", false);
+
         }
         lastJumpTime += Time.deltaTime;
 
