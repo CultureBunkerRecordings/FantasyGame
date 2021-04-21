@@ -187,11 +187,13 @@ public class playerController : MonoBehaviour
             {
                 if(collision.gameObject.name == "Daggers(Clone)")
                 {
+                    hasSword = false;
                     hasDaggers = true;
                     GameManager.SingletonInstance.updatePlayer1Weapon(0);
                 }
                 else if (collision.gameObject.name == "Sword(Clone)")
                 {
+                    hasDaggers = false;
                     hasSword = true;
                     GameManager.SingletonInstance.updatePlayer1Weapon(1);
                 }
@@ -206,11 +208,13 @@ public class playerController : MonoBehaviour
             {
                 if (collision.gameObject.name == "Daggers(Clone)")
                 {
+                    hasSword = false;
                     hasDaggers = true;
                     GameManager.SingletonInstance.updatePlayer2Weapon(0);
                 }
                 else if (collision.gameObject.name == "Sword(Clone)")
                 {
+                    hasDaggers = false;
                     hasSword = true;
                     GameManager.SingletonInstance.updatePlayer2Weapon(1);
                 }

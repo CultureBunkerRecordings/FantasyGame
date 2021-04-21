@@ -16,6 +16,9 @@ public class KnightController : MonoBehaviour
     public bool hasPotion;
     public bool hasPickedUp;
     public bool kicking;
+
+    public GameObject daggerPrefab;
+    public float throwPower = 300;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class KnightController : MonoBehaviour
         knight.hasPotion = hasPotion;
         knight.hasPickedUp = hasPickedUp;
         knight.kicking = kicking;
+        knight.throwPower = throwPower;
+        knight.daggerPrefab = daggerPrefab;
     }
 
     // Update is called once per frame
@@ -40,10 +45,20 @@ public class KnightController : MonoBehaviour
         knight.JumpingAnim();
         knight.attack();
         knight.UpperCut();
+        
+
+        knight.facingRight = pController.facingRight;
 
         if (pController.hasSword)
         {
+            knight.updateDaggerAnimationLayerWeight(0);
             knight.updateSwordAnimationLayerWeight(1);
+        }
+
+        if (pController.hasDaggers)
+        {
+            knight.updateSwordAnimationLayerWeight(0);
+            knight.updateDaggerAnimationLayerWeight(1);
         }
     }
 }

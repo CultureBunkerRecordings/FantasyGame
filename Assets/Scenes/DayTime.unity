@@ -9602,6 +9602,9 @@ MonoBehaviour:
   hasPotion: 0
   hasPickedUp: 0
   kicking: 0
+  daggerPrefab: {fileID: 3003075284867200912, guid: 5772abbd834e8444599151e8d5b18561,
+    type: 3}
+  throwPower: 10
 --- !u!1 &1046213126
 GameObject:
   m_ObjectHideFlags: 0
@@ -13030,6 +13033,9 @@ MonoBehaviour:
   hasPotion: 0
   hasPickedUp: 0
   kicking: 0
+  daggerPrefab: {fileID: 3003075284867200912, guid: 5772abbd834e8444599151e8d5b18561,
+    type: 3}
+  throwPower: 10
 --- !u!95 &2068419372
 Animator:
   serializedVersion: 3

@@ -13,9 +13,14 @@ public class Characters : ScriptableObject
     public Transform attackPoint;
 
     public GameObject spellPrefab;
+    public GameObject daggerPrefab;
+
     public bool hasPotion;
     public bool hasPickedUp;
     public bool kicking = false;
+
+    public bool facingRight = false;
+    public float throwPower;
     // Start is called before the first frame update
    
     public void attack()
@@ -24,13 +29,20 @@ public class Characters : ScriptableObject
         {
             anim.SetBool("attack", true);
 
-            Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
-
-            foreach (var enemy in enemyHits)
+            if (pController.hasDaggers)
             {
-                Debug.Log(enemy.name + "Hit");
-                enemy.GetComponent<EnemyHealth>().takeDamage();
+                throwDagger();
             }
+            else
+            {
+                Collider[] enemyHits = Physics.OverlapSphere(attackPoint.position, attackRadius, enemyLayer);
+
+                foreach (var enemy in enemyHits)
+                {
+                    Debug.Log(enemy.name + "Hit");
+                    enemy.GetComponent<EnemyHealth>().takeDamage();
+                }
+            }  
         }
         else
         {
@@ -166,5 +178,29 @@ public class Characters : ScriptableObject
     public void updateSwordAnimationLayerWeight(int weight)
     {
         anim.SetLayerWeight(1, weight);
+    }
+
+    public void updateDaggerAnimationLayerWeight(int weight)
+    {
+        anim.SetLayerWeight(2, weight);
+    }
+
+    public void throwDagger()
+    {
+        GameObject newDagger = Instantiate(daggerPrefab, attackPoint.position, Quaternion.identity);
+        Rigidbody daggerRb = newDagger.GetComponent<Rigidbody>();
+        
+        Vector3 direction;
+        
+        if (facingRight)
+        {
+            direction = Vector3.right;
+        }
+        else
+        {
+            direction = -Vector3.right;
+        }
+
+        daggerRb.AddForce(throwPower * direction, ForceMode.Impulse);
     }
 }
