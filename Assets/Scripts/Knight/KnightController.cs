@@ -40,5 +40,10 @@ public class KnightController : MonoBehaviour
         knight.JumpingAnim();
         knight.attack();
         knight.UpperCut();
+
+        if (pController.hasSword)
+        {
+            knight.updateSwordAnimationLayerWeight(1);
+        }
     }
 }

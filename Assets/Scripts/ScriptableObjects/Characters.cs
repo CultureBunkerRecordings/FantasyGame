@@ -62,6 +62,7 @@ public class Characters : ScriptableObject
 
     public void walkingAnim()
     {
+
         if (pController.isWalkingAcross || pController.isWalkingUp && pController.onGround)
         {
             anim.SetBool("walk", true);
@@ -160,5 +161,10 @@ public class Characters : ScriptableObject
             pController.kicking = false;
         }
 
+    }
+
+    public void updateSwordAnimationLayerWeight(int weight)
+    {
+        anim.SetLayerWeight(1, weight);
     }
 }
