@@ -22,7 +22,8 @@ public class KnightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        knight.pController = GameObject.Find("PlayerController").GetComponent<playerController>();
+        knight = new Characters();
+        knight.pController = pController;
         knight.anim = GetComponent<Animator>();
         knight.particles = particles;
         knight.enemyLayer = enemyLayer;

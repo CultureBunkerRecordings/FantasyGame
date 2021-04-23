@@ -28,9 +28,9 @@ public class EnemyHealth : MonoBehaviour
         enemyColour.color = Color.white;
     }
 
-    public void takeDamage()
+    public void takeDamage(int damage)
     {
-        health--;
+        health -= damage;
         enemyFlash();
         Invoke("enemyFlashBack", flashTime);
         if (health <= 0)

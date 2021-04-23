@@ -40,7 +40,7 @@ public class Characters : ScriptableObject
                 foreach (var enemy in enemyHits)
                 {
                     Debug.Log(enemy.name + "Hit");
-                    enemy.GetComponent<EnemyHealth>().takeDamage();
+                    enemy.GetComponent<EnemyHealth>().takeDamage(1);
                 }
             }  
         }
@@ -160,7 +160,7 @@ public class Characters : ScriptableObject
                 foreach (var enemy in enemyHits)
                 {
                     Debug.Log(enemy.name + "Hit");
-                    enemy.GetComponent<EnemyHealth>().takeDamage();
+                    enemy.GetComponent<EnemyHealth>().takeDamage(1);
                 }
             }
             else
